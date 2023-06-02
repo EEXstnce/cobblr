@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enlighten API Docs</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<style>
+		p {
+			font-size: 14px;
+		}
+    ul {
+			font-size: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Enlighten API Docs</h1>
+	<p>Below are the available endpoints and their descriptions:</p>
+	<ul>
+		<li><code>/</code>: This endpoint returns the index.html template.</li>
+		<li><code>/docs</code>: This endpoint returns the docs.html template.</li>
+		<li><code>/api</code>: This endpoint handles GET and POST requests. It expects query parameters <code>data</code> and <code>token</code>. It returns JSON responses based on the value of the <code>data</code> parameter.</li>
+		<li><code>/data</code>: This endpoint returns the <code>data_files</code> dictionary as a JSON response.</li>
+		<li><code>/dbr_fx</code>: This endpoint calculates and returns the <code>dbr_fx</code> value as a JSON response.</li>
+		<li><code>/dbr_issuance</code>: This endpoint separates the datasets in the "dbr" file and returns the <code>dbr_issuance</code> value as a JSON response.</li>
+		<li><code>/dbr_value</code>: This endpoint calculates the <code>dbr_value</code> based on the <code>dbr_fx</code> and <code>dbr_policy</code> values, and returns it as a JSON response.</li>
+		<li><code>/inv_stake</code>: This endpoint calculates and returns the <code>inv_stake</code> value as a JSON response.</li>
+		<li><code>/dbr_per_inv</code>: This endpoint calculates the <code>dbr_per_inv</code> value based on the <code>dbr_policy</code> and <code>inv_stake</code> values, and returns it as a JSON response.</li>

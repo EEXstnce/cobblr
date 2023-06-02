@@ -1,0 +1,17 @@
+body {
+	/* You can replace the colors with your own :) */
+	background: linear-gradient(to top left, #f7732b, #ffc72e);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	color: white;
+	font-family: "Segoe UI", Tohama, Geneva, Verdana, sans-serif;
+	font-size: 20px;
+}
+
+.center {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
