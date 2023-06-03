@@ -18,7 +18,7 @@ errors = 0
 def index():
   global hits
   hits += 1
-  return render_template("errors.html", e=str(e)), code
+  return render_template("index.html")
 
 
 @app.route("/docs")
