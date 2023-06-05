@@ -190,6 +190,18 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-cors"
+version = "3.0.10"
+description = "A Flask extension adding a decorator for CORS support"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Flask = ">=0.9"
+Six = "*"
+
+[[package]]
 name = "flask-restful"
 version = "0.3.10"
 description = "Simple framework for creating REST APIs"
@@ -624,7 +636,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "086ca4049926f199cd76ec0df81cb102c184dcc82a00d1a54436930df20f0c88"
+content-hash = "35ab35278d5d7235fa9861135e31368fd54a33016465fce2569b68aac2283204"
 
 [metadata.files]
 aiohttp = []
@@ -642,6 +654,7 @@ colorama = []
 cryptography = []
 debugpy = []
 flask = []
+flask-cors = []
 flask-restful = []
 frozenlist = []
 idna = []

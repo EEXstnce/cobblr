@@ -16,12 +16,14 @@
 	<h1>Enlighten API Docs</h1>
 	<p>Below are the available endpoints and their descriptions:</p>
 	<ul>
-		<li><code>/</code>: This endpoint returns the index.html template.</li>
-		<li><code>/docs</code>: This endpoint returns the docs.html template.</li>
-		<li><code>/api</code>: This endpoint handles GET and POST requests. It expects query parameters <code>data</code> and <code>token</code>. It returns JSON responses based on the value of the <code>data</code> parameter.</li>
-		<li><code>/data</code>: This endpoint returns the <code>data_files</code> dictionary as a JSON response.</li>
-		<li><code>/dbr_fx</code>: This endpoint calculates and returns the <code>dbr_fx</code> value as a JSON response.</li>
-		<li><code>/dbr_issuance</code>: This endpoint separates the datasets in the "dbr" file and returns the <code>dbr_issuance</code> value as a JSON response.</li>
-		<li><code>/dbr_value</code>: This endpoint calculates the <code>dbr_value</code> based on the <code>dbr_fx</code> and <code>dbr_policy</code> values, and returns it as a JSON response.</li>
-		<li><code>/inv_stake</code>: This endpoint calculates and returns the <code>inv_stake</code> value as a JSON response.</li>
-		<li><code>/dbr_per_inv</code>: This endpoint calculates the <code>dbr_per_inv</code> value based on the <code>dbr_policy</code> and <code>inv_stake</code> values, and returns it as a JSON response.</li>
+		<li><code>/dbr_policy</code>: Retrieves the "dbr_policy" data from the endpoint "https://www.inverse.finance/api/transparency/dbr-emissions" and returns it in a JSON format after processing the data with the function dbr_policy().</li>
+    <li><code>/dbr_price</code>: Retrieves the "dbr_price" data from the endpoint "https://www.inverse.finance/api/dbr" and returns it in a JSON format after processing the data with the function dbr_price().</li>
+    <li><code>/tvl</code>: Retrieves the "tvl" data from the endpoint "https://www.inverse.finance/api/f2/tvl" and returns it in a JSON format after processing the data with the function tvl().</li>
+    <li><code>/firm</code>: Retrieves the "firm" data from the endpoint "https://www.inverse.finance/api/f2/fixed-markets" and returns it in a JSON format after processing the data with the function firm().</li>
+    <li><code>/positions</code>: Retrieves the "positions" data from the endpoint "https://www.inverse.finance/api/f2/firm-positions" and returns it in a JSON format after processing the data with the function positions().</li>
+    <li><code>/tvl_firm</code>: Executes the function tvl_firm() which fetches the "tvl" and "firm" data from their respective endpoints, processes the data, and returns it in a JSON format.</li>
+    <li><code>/dbr_issue</code>: Executes the function dbr_issue() which fetches multiple data sets from various endpoints, processes the data, and returns it in a JSON format.</li>
+    <li><code>/inv_stake</code>: Executes the function inv_stake() which fetches data from various endpoints, processes the data, and returns it in a JSON format.</li>
+  </ul>
+</body>
+</html>  
