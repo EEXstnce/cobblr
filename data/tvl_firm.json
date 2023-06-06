@@ -1,60 +1,6 @@
-{"timestamp":05/06/2023 23:19:47,{
+{"timestamp":06/06/2023 21:23:52,{
   "WETH": {
-    "price": 1807.17034,
-    "totalDebt": 104119.79984760284,
-    "collateralFactor": 0.8,
-    "dolaLiquidity": 895880.2001523972,
-    "supplyApy": 0,
-    "supplyApyLow": 0,
-    "borrowPaused": false
-  },
-  "stETH": {
-    "price": 1808.39,
-    "totalDebt": 27622.920930832224,
-    "collateralFactor": 0.8,
-    "dolaLiquidity": 972377.0790691677,
-    "supplyApy": 4.4,
-    "supplyApyLow": 0,
-    "borrowPaused": false
-  },
-  "gOHM": {
-    "price": 2771.2645168238846,
-    "totalDebt": 621177.143469968,
-    "collateralFactor": 0.75,
-    "dolaLiquidity": 1878822.8565300321,
-    "supplyApy": 2.3328405254267714,
-    "supplyApyLow": 0,
-    "borrowPaused": false
-  },
-  "CRV": {
-    "price": 0.7746,
-    "totalDebt": 2704208.9085388184,
-    "collateralFactor": 0.75,
-    "dolaLiquidity": 2295791.0914611816,
-    "supplyApy": 0,
-    "supplyApyLow": 0,
-    "borrowPaused": false
-  },
-  "cvxCRV": {
-    "price": 0.7428591281820015,
-    "totalDebt": 1151290.1291457722,
-    "collateralFactor": 0.5,
-    "dolaLiquidity": 2348709.870854228,
-    "supplyApy": 24.270826148571338,
-    "supplyApyLow": 20.653247311302977,
-    "borrowPaused": false
-  },
-  "INV": {
-    "price": 37.97,
-    "totalDebt": 0,
-    "collateralFactor": 0,
-    "dolaLiquidity": 0,
-    "supplyApy": 11.871780523272463,
-    "supplyApyLow": 0,
-    "borrowPaused": true
-  }
-}},{"timestamp":06/06/2023 21:23:43,{
-  "WETH": {
+    "tvl": 193662.7243608458,
     "price": 1877.60853174,
     "totalDebt": 104119.79984760284,
     "collateralFactor": 0.8,
@@ -64,6 +10,7 @@
     "borrowPaused": false
   },
   "stETH": {
+    "tvl": 73219.3989925229,
     "price": 1875.36,
     "totalDebt": 27622.920930832224,
     "collateralFactor": 0.8,
@@ -73,6 +20,7 @@
     "borrowPaused": false
   },
   "gOHM": {
+    "tvl": 1319231.5232381332,
     "price": 2847.7485715362427,
     "totalDebt": 671177.143469968,
     "collateralFactor": 0.75,
@@ -82,6 +30,7 @@
     "borrowPaused": false
   },
   "CRV": {
+    "tvl": 5694952.2453520885,
     "price": 0.7905,
     "totalDebt": 2704208.9085388184,
     "collateralFactor": 0.75,
@@ -91,6 +40,7 @@
     "borrowPaused": false
   },
   "cvxCRV": {
+    "tvl": 5054125.499407666,
     "price": 0.7520163930986311,
     "totalDebt": 1151290.1291457722,
     "collateralFactor": 0.5,
@@ -100,6 +50,7 @@
     "borrowPaused": false
   },
   "INV": {
+    "tvl": 3092743.7078638743,
     "price": 37.31,
     "totalDebt": 0,
     "collateralFactor": 0,
@@ -110,6 +61,7 @@
   }
 }},{"timestamp":06/06/2023 21:24:18,{
   "WETH": {
+    "tvl": 193662.7243608458,
     "price": 1877.60853174,
     "totalDebt": 104119.79984760284,
     "collateralFactor": 0.8,
@@ -119,6 +71,7 @@
     "borrowPaused": false
   },
   "stETH": {
+    "tvl": 73219.3989925229,
     "price": 1875.36,
     "totalDebt": 27622.920930832224,
     "collateralFactor": 0.8,
@@ -128,6 +81,7 @@
     "borrowPaused": false
   },
   "gOHM": {
+    "tvl": 1319231.5232381332,
     "price": 2847.7485715362427,
     "totalDebt": 671177.143469968,
     "collateralFactor": 0.75,
@@ -137,6 +91,7 @@
     "borrowPaused": false
   },
   "CRV": {
+    "tvl": 5694952.2453520885,
     "price": 0.7905,
     "totalDebt": 2704208.9085388184,
     "collateralFactor": 0.75,
@@ -146,6 +101,7 @@
     "borrowPaused": false
   },
   "cvxCRV": {
+    "tvl": 5054125.499407666,
     "price": 0.7520163930986311,
     "totalDebt": 1151290.1291457722,
     "collateralFactor": 0.5,
@@ -155,6 +111,7 @@
     "borrowPaused": false
   },
   "INV": {
+    "tvl": 3092743.7078638743,
     "price": 37.31,
     "totalDebt": 0,
     "collateralFactor": 0,
@@ -163,8 +120,9 @@
     "supplyApyLow": 0,
     "borrowPaused": true
   }
-}},{"timestamp":06/06/2023 21:27:00,{
+}},{"timestamp":06/06/2023 21:27:12,{
   "WETH": {
+    "tvl": 193662.7243608458,
     "price": 1877.60853174,
     "totalDebt": 104119.79984760284,
     "collateralFactor": 0.8,
@@ -174,6 +132,7 @@
     "borrowPaused": false
   },
   "stETH": {
+    "tvl": 73219.3989925229,
     "price": 1875.36,
     "totalDebt": 27622.920930832224,
     "collateralFactor": 0.8,
@@ -183,6 +142,7 @@
     "borrowPaused": false
   },
   "gOHM": {
+    "tvl": 1319231.5232381332,
     "price": 2847.7485715362427,
     "totalDebt": 671177.143469968,
     "collateralFactor": 0.75,
@@ -192,6 +152,7 @@
     "borrowPaused": false
   },
   "CRV": {
+    "tvl": 5694952.2453520885,
     "price": 0.7905,
     "totalDebt": 2704208.9085388184,
     "collateralFactor": 0.75,
@@ -201,6 +162,7 @@
     "borrowPaused": false
   },
   "cvxCRV": {
+    "tvl": 5054126.348700716,
     "price": 0.7520165194671387,
     "totalDebt": 1151290.1291457722,
     "collateralFactor": 0.5,
@@ -210,6 +172,7 @@
     "borrowPaused": false
   },
   "INV": {
+    "tvl": 3092746.0900158267,
     "price": 37.31,
     "totalDebt": 0,
     "collateralFactor": 0,
@@ -218,8 +181,9 @@
     "supplyApyLow": 0,
     "borrowPaused": true
   }
-}},{"timestamp":06/06/2023 21:36:45,{
+}},{"timestamp":06/06/2023 21:36:55,{
   "WETH": {
+    "tvl": 193662.7243608458,
     "price": 1877.60853174,
     "totalDebt": 104119.79984760284,
     "collateralFactor": 0.8,
@@ -229,6 +193,7 @@
     "borrowPaused": false
   },
   "stETH": {
+    "tvl": 73219.3989925229,
     "price": 1875.36,
     "totalDebt": 27622.920930832224,
     "collateralFactor": 0.8,
@@ -238,6 +203,7 @@
     "borrowPaused": false
   },
   "gOHM": {
+    "tvl": 1319231.5232381332,
     "price": 2847.7485715362427,
     "totalDebt": 671177.143469968,
     "collateralFactor": 0.75,
@@ -247,6 +213,7 @@
     "borrowPaused": false
   },
   "CRV": {
+    "tvl": 5694952.2453520885,
     "price": 0.7905,
     "totalDebt": 2704208.9085388184,
     "collateralFactor": 0.75,
@@ -256,6 +223,7 @@
     "borrowPaused": false
   },
   "cvxCRV": {
+    "tvl": 5054128.454405719,
     "price": 0.7520168327804273,
     "totalDebt": 1151290.1291457722,
     "collateralFactor": 0.5,
@@ -265,6 +233,7 @@
     "borrowPaused": false
   },
   "INV": {
+    "tvl": 3092752.63132148,
     "price": 37.31,
     "totalDebt": 0,
     "collateralFactor": 0,
@@ -273,8 +242,9 @@
     "supplyApyLow": 0,
     "borrowPaused": true
   }
-}},{"timestamp":06/06/2023 21:37:27,{
+}},{"timestamp":06/06/2023 21:37:32,{
   "WETH": {
+    "tvl": 193662.7243608458,
     "price": 1877.60853174,
     "totalDebt": 104119.79984760284,
     "collateralFactor": 0.8,
@@ -284,6 +254,7 @@
     "borrowPaused": false
   },
   "stETH": {
+    "tvl": 73219.3989925229,
     "price": 1875.36,
     "totalDebt": 27622.920930832224,
     "collateralFactor": 0.8,
@@ -293,6 +264,7 @@
     "borrowPaused": false
   },
   "gOHM": {
+    "tvl": 1319231.5232381332,
     "price": 2847.7485715362427,
     "totalDebt": 671177.143469968,
     "collateralFactor": 0.75,
@@ -302,6 +274,7 @@
     "borrowPaused": false
   },
   "CRV": {
+    "tvl": 5694952.2453520885,
     "price": 0.7905,
     "totalDebt": 2704208.9085388184,
     "collateralFactor": 0.75,
@@ -311,6 +284,7 @@
     "borrowPaused": false
   },
   "cvxCRV": {
+    "tvl": 5054128.454405719,
     "price": 0.7520168327804273,
     "totalDebt": 1151290.1291457722,
     "collateralFactor": 0.5,
@@ -320,6 +294,7 @@
     "borrowPaused": false
   },
   "INV": {
+    "tvl": 3092752.63132148,
     "price": 37.31,
     "totalDebt": 0,
     "collateralFactor": 0,
@@ -328,8 +303,9 @@
     "supplyApyLow": 0,
     "borrowPaused": true
   }
-}},{"timestamp":06/06/2023 21:38:07,{
+}},{"timestamp":06/06/2023 21:38:15,{
   "WETH": {
+    "tvl": 193662.7243608458,
     "price": 1877.60853174,
     "totalDebt": 104119.79984760284,
     "collateralFactor": 0.8,
@@ -339,6 +315,7 @@
     "borrowPaused": false
   },
   "stETH": {
+    "tvl": 73219.3989925229,
     "price": 1875.36,
     "totalDebt": 27622.920930832224,
     "collateralFactor": 0.8,
@@ -348,6 +325,7 @@
     "borrowPaused": false
   },
   "gOHM": {
+    "tvl": 1319231.5232381332,
     "price": 2847.7485715362427,
     "totalDebt": 671177.143469968,
     "collateralFactor": 0.75,
@@ -357,6 +335,7 @@
     "borrowPaused": false
   },
   "CRV": {
+    "tvl": 5694952.2453520885,
     "price": 0.7905,
     "totalDebt": 2704208.9085388184,
     "collateralFactor": 0.75,
@@ -366,6 +345,7 @@
     "borrowPaused": false
   },
   "cvxCRV": {
+    "tvl": 5054128.718161583,
     "price": 0.7520168720253438,
     "totalDebt": 1151290.1291457722,
     "collateralFactor": 0.5,
@@ -375,6 +355,7 @@
     "borrowPaused": false
   },
   "INV": {
+    "tvl": 3092753.524093595,
     "price": 37.31,
     "totalDebt": 0,
     "collateralFactor": 0,
@@ -383,8 +364,9 @@
     "supplyApyLow": 0,
     "borrowPaused": true
   }
-}},{"timestamp":06/06/2023 22:32:06,{
+}},{"timestamp":06/06/2023 22:32:15,{
   "WETH": {
+    "tvl": 194055.85174313482,
     "price": 1881.42,
     "totalDebt": 104119.79984760284,
     "collateralFactor": 0.8,
@@ -394,6 +376,7 @@
     "borrowPaused": false
   },
   "stETH": {
+    "tvl": 73260.93467177918,
     "price": 1876.42384855,
     "totalDebt": 27622.920930832224,
     "collateralFactor": 0.8,
@@ -403,6 +386,7 @@
     "borrowPaused": false
   },
   "gOHM": {
+    "tvl": 1321909.509087374,
     "price": 2853.529384261253,
     "totalDebt": 671177.143469968,
     "collateralFactor": 0.75,
@@ -412,6 +396,7 @@
     "borrowPaused": false
   },
   "CRV": {
+    "tvl": 5752586.170668744,
     "price": 0.7985,
     "totalDebt": 2704208.9085388184,
     "collateralFactor": 0.75,
@@ -421,6 +406,7 @@
     "borrowPaused": false
   },
   "cvxCRV": {
+    "tvl": 5105479.039654315,
     "price": 0.759657419051322,
     "totalDebt": 1151290.1291457722,
     "collateralFactor": 0.5,
@@ -430,6 +416,7 @@
     "borrowPaused": false
   },
   "INV": {
+    "tvl": 3087816.8655141024,
     "price": 37.25,
     "totalDebt": 0,
     "collateralFactor": 0,

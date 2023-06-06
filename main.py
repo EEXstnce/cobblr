@@ -3,7 +3,6 @@ import os
 from flask import Flask, request, render_template, jsonify
 from werkzeug.exceptions import HTTPException
 from flask_cors import CORS
-import pickle
 
 from clean.dbr import dbr_policy, dbr_price
 from clean.pce import tvl, firm, combine
@@ -17,7 +16,7 @@ from build.dbr_inv import dbr_per_inv
 from util import printToJson
 
 app = Flask(__name__)
-CORS(app, origins=["https://enlighten.gg/"])
+CORS(app)
 hits = 0
 errors = 0
 
@@ -41,6 +40,7 @@ endpoint_functions = {
 # Create a folder called "in" to store API endpoint results
 if not os.path.exists("in"):
   os.mkdir("in")
+
 
 @app.route("/")
 def index():
@@ -105,20 +105,25 @@ def api():
       "content": "Data specified does not exist"
     })
 
+
 @app.route("/dbr_policy", methods=["GET"])
 def dbr_policy_endpoint():
   global hits, errors
   hits += 1
   url = api_endpoints["dbr_policy"]
   try:
-      response = requests.get(url)
-      data = response.json()
-      data = dbr_policy(data)
-      printToJson(data, "dbr_policy")
-      return jsonify(data)
+    response = requests.get(url)
+    data = response.json()
+    data = dbr_policy(data)
+    printToJson(data, "dbr_policy")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error fetching dbr_policy data"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error fetching dbr_policy data"
+    }), 500
+
 
 @app.route("/dbr_price", methods=["GET"])
 def dbr_price_endpoint():
@@ -126,14 +131,18 @@ def dbr_price_endpoint():
   hits += 1
   url = api_endpoints["dbr_price"]
   try:
-      response = requests.get(url)
-      data = response.json()
-      data = dbr_price(data)
-      printToJson(data, "dbr_price")
-      return jsonify(data)
+    response = requests.get(url)
+    data = response.json()
+    data = dbr_price(data)
+    printToJson(data, "dbr_price")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error fetching dbr_price data"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error fetching dbr_price data"
+    }), 500
+
 
 @app.route("/tvl", methods=["GET"])
 def tvl_endpoint():
@@ -141,14 +150,18 @@ def tvl_endpoint():
   hits += 1
   url = api_endpoints["tvl"]
   try:
-      response = requests.get(url)
-      data = response.json()
-      data = tvl(data)
-      printToJson(data, "tvl")
-      return jsonify(data)
+    response = requests.get(url)
+    data = response.json()
+    data = tvl(data)
+    printToJson(data, "tvl")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error fetching TVL data"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error fetching TVL data"
+    }), 500
+
 
 @app.route("/firm", methods=["GET"])
 def firm_endpoint():
@@ -156,14 +169,18 @@ def firm_endpoint():
   hits += 1
   url = api_endpoints["firm"]
   try:
-      response = requests.get(url)
-      data = response.json()
-      data = firm(data)
-      printToJson(data, "firm")
-      return jsonify(data)
+    response = requests.get(url)
+    data = response.json()
+    data = firm(data)
+    printToJson(data, "firm")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error fetching firm data"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error fetching firm data"
+    }), 500
+
 
 @app.route("/positions", methods=["GET"])
 def positions_endpoint():
@@ -171,62 +188,81 @@ def positions_endpoint():
   hits += 1
   url = api_endpoints["positions"]
   try:
-      response = requests.get(url)
-      data = response.json()
-      data = positions(data)
-      printToJson(data, "positions")
-      return jsonify(data)
+    response = requests.get(url)
+    data = response.json()
+    data = positions(data)
+    printToJson(data, "positions")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error fetching positions data"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error fetching positions data"
+    }), 500
+
 
 @app.route("/tvl_firm", methods=["GET"])
 def tvl_firm_endpoint():
   global hits, errors
   hits += 1
   try:
-      data = tvl_firm(api_endpoints)
-      printToJson(data, "tvl_firm")
-      return jsonify(data)
+    data = tvl_firm(api_endpoints)
+    printToJson(data, "tvl_firm")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error fetching TVL and firm data"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error fetching TVL and firm data"
+    }), 500
+
 
 @app.route("/dbr_issue", methods=["GET"])
 def dbr_issue_endpoint():
   global hits, errors
   hits += 1
   try:
-      data = dbr_issue(api_endpoints)
-      printToJson(data, "dbr_issue")
-      return jsonify(data)
+    data = dbr_issue(api_endpoints)
+    printToJson(data, "dbr_issue")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error calculating DBR issuance"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error calculating DBR issuance"
+    }), 500
+
 
 @app.route("/inv_stake", methods=["GET"])
 def inv_stake_endpoint():
   global hits, errors
   hits += 1
   try:
-      data = inv_stake(api_endpoints)
-      printToJson(data, "inv_stake")
-      return jsonify(data)
+    data = inv_stake(api_endpoints)
+    printToJson(data, "inv_stake")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error calculating inverted stake"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error calculating inverted stake"
+    }), 500
+
 
 @app.route("/dbr_inv", methods=["GET"])
 def dbr_inv_endpoint():
   global hits, errors
   hits += 1
   try:
-      data = dbr_per_inv(api_endpoints)
-      printToJson(data, "dbr_inv")
-      return jsonify(data)
+    data = dbr_per_inv(api_endpoints)
+    printToJson(data, "dbr_inv")
+    return data
   except:
-      errors += 1
-      return jsonify({"success": False, "message": "Error calculating DBR per inverted stake"}), 500
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error calculating DBR per inverted stake"
+    }), 500
 
 
 if __name__ == "__main__":
