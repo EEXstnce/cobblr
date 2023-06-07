@@ -96,6 +96,14 @@ tests-no-zope = ["hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist", "c
 tests_no_zope = ["hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist", "cloudpickle", "mypy (>=0.971,<0.990)", "pytest-mypy-plugins"]
 
 [[package]]
+name = "cachelib"
+version = "0.9.0"
+description = "A collection of cache libraries in the same API interface."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "certifi"
 version = "2022.12.7"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -188,6 +196,18 @@ Werkzeug = ">=2.2.2"
 [package.extras]
 async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
+
+[[package]]
+name = "flask-caching"
+version = "2.0.2"
+description = "Adds caching support to Flask applications."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+cachelib = ">=0.9.0,<0.10.0"
+Flask = "<3"
 
 [[package]]
 name = "flask-cors"
@@ -636,7 +656,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "35ab35278d5d7235fa9861135e31368fd54a33016465fce2569b68aac2283204"
+content-hash = "8807936266142ce18a3eba1135ba624f7a6dee33dc5159a9d737d780208c6075"
 
 [metadata.files]
 aiohttp = []
@@ -646,6 +666,7 @@ argon2-cffi = []
 argon2-cffi-bindings = []
 async-timeout = []
 attrs = []
+cachelib = []
 certifi = []
 cffi = []
 charset-normalizer = []
@@ -654,6 +675,7 @@ colorama = []
 cryptography = []
 debugpy = []
 flask = []
+flask-caching = []
 flask-cors = []
 flask-restful = []
 frozenlist = []

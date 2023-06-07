@@ -3,6 +3,7 @@ import os
 from flask import Flask, request, render_template, jsonify
 from werkzeug.exceptions import HTTPException
 from flask_cors import CORS
+from flask_caching import Cache
 
 from clean.dbr import dbr_policy, dbr_price
 from clean.pce import tvl, firm, combine
@@ -12,12 +13,18 @@ from build.tvl_firm import tvl_firm
 from build.dbr_issue import dbr_issue
 from build.inv_stake import inv_stake
 from build.dbr_inv import dbr_per_inv
-from build.inv_fx import inv_fx
+from build.inv_fx import inv_fx, inv_mult
+from build.debt import debt
 
 from util import printToJson
 
 app = Flask(__name__)
 CORS(app)
+cache = Cache(app,
+              config={
+                'CACHE_TYPE': 'filesystem',
+                'CACHE_DIR': 'data/cache'
+              })
 hits = 0
 errors = 0
 
@@ -109,164 +116,83 @@ def api():
     })
 
 
-@app.route("/dbr_policy", methods=["GET"])
-def dbr_policy_endpoint():
+def endpoint(func, name):
   global hits, errors
   hits += 1
   try:
-    data = dbr_policy()
-    printToJson(data, "dbr_policy")
+    data = func()
+    printToJson(data, name)
+    cache.set(name, data, timeout=5 * 60)  # Cache data for 5 minutes
     return data
   except:
     errors += 1
+    cached_data = cache.get(name)  # Get cached data if it exists
+    if cached_data is not None:
+      return cached_data
     return jsonify({
       "success": False,
-      "message": "Error fetching dbr_policy data"
+      "message": f"Error fetching {name} data"
     }), 500
+
+
+@app.route("/dbr_policy", methods=["GET"])
+def dbr_policy_endpoint():
+  return endpoint(dbr_policy, "dbr_policy")
 
 
 @app.route("/dbr_price", methods=["GET"])
 def dbr_price_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = dbr_price()
-    printToJson(data, "dbr_price")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error fetching dbr_price data"
-    }), 500
+  return endpoint(dbr_price, "dbr_price")
 
 
 @app.route("/tvl", methods=["GET"])
 def tvl_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = tvl()
-    printToJson(data, "tvl")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error fetching TVL data"
-    }), 500
+  return endpoint(tvl, "tvl")
 
 
 @app.route("/firm", methods=["GET"])
 def firm_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = firm()
-    printToJson(data, "firm")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error fetching firm data"
-    }), 500
+  return endpoint(firm, "firm")
 
 
 @app.route("/positions", methods=["GET"])
 def positions_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = positions()
-    printToJson(data, "positions")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error fetching positions data"
-    }), 500
+  return endpoint(positions, "positions")
+
+
+@app.route("/debt", methods=["GET"])
+def debt_endpoint():
+  return endpoint(debt, "debt")
 
 
 @app.route("/tvl_firm", methods=["GET"])
 def tvl_firm_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = tvl_firm()
-    printToJson(data, "tvl_firm")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error fetching TVL and firm data"
-    }), 500
+  return endpoint(tvl_firm, "tvl_firm")
 
 
 @app.route("/dbr_issue", methods=["GET"])
 def dbr_issue_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = dbr_issue()
-    printToJson(data, "dbr_issue")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error calculating DBR issuance"
-    }), 500
+  return endpoint(dbr_issue, "dbr_issue")
 
 
 @app.route("/inv_stake", methods=["GET"])
 def inv_stake_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = inv_stake()
-    printToJson(data, "inv_stake")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error calculating inv stake"
-    }), 500
+  return endpoint(inv_stake, "inv_stake")
 
 
 @app.route("/dbr_inv", methods=["GET"])
-def dbr_per_inv_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = dbr_per_inv()
-    printToJson(data, "dbr_per_inv")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error calculating DBR per inv stake"
-    }), 500
+def dbr_inv_endpoint():
+  return endpoint(dbr_per_inv, "dbr_inv")
 
 
 @app.route("/inv_fx", methods=["GET"])
 def inv_fx_endpoint():
-  global hits, errors
-  hits += 1
-  try:
-    data = inv_fx()
-    printToJson(data, "inv_fx")
-    return data
-  except:
-    errors += 1
-    return jsonify({
-      "success": False,
-      "message": "Error calculating DBR per inv stake"
-    }), 500
+  return endpoint(inv_fx, "inv_fx")
+
+
+@app.route("/inv_mult", methods=["GET"])
+def inv_mult_endpoint():
+  return endpoint(inv_mult, "inv_mult")
 
 
 if __name__ == "__main__":
