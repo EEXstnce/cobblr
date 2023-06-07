@@ -1,15 +1,19 @@
-import requests
 from clean.dbr import dbr_policy
+from build.dbr_issue import dbr_issue
 from build.inv_stake import inv_stake
 
 
-def dbr_per_inv(api_endpoints):
-  url = api_endpoints["dbr_policy"]
-  response = requests.get(url)
-  data = response.json()
-  dbr_pol = dbr_policy(data)
+def dbr_per_inv():
+  inv_staked = inv_stake()
+  staked = inv_staked['inv_stake']
 
-  inv_staked = inv_stake(api_endpoints)
+  dbr_pol = dbr_policy()
+  policy = dbr_pol['dbr_policy']
 
-  dbr_per_inv = dbr_pol / inv_staked
-  return dbr_per_inv
+  dbr_iss = dbr_issue()
+  issue = dbr_iss['dbr_issue']
+
+  dbr_inv = policy / staked
+  dol_inv = issue / staked
+
+  return {"dbr_per_inv": dbr_inv, "dollars_per_inv": dol_inv}

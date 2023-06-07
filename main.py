@@ -12,6 +12,7 @@ from build.tvl_firm import tvl_firm
 from build.dbr_issue import dbr_issue
 from build.inv_stake import inv_stake
 from build.dbr_inv import dbr_per_inv
+from build.inv_fx import inv_fx
 
 from util import printToJson
 
@@ -37,9 +38,11 @@ endpoint_functions = {
   "dbr_inv": dbr_per_inv
 }
 
-# Create a folder called "in" to store API endpoint results
-if not os.path.exists("in"):
-  os.mkdir("in")
+
+@app.route('/', defaults={'path': ''}, methods=['OPTIONS'])
+@app.route('/<path:path>', methods=['OPTIONS'])
+def catch_all_options(path):
+  return '', 200
 
 
 @app.route("/")
@@ -110,11 +113,8 @@ def api():
 def dbr_policy_endpoint():
   global hits, errors
   hits += 1
-  url = api_endpoints["dbr_policy"]
   try:
-    response = requests.get(url)
-    data = response.json()
-    data = dbr_policy(data)
+    data = dbr_policy()
     printToJson(data, "dbr_policy")
     return data
   except:
@@ -129,11 +129,8 @@ def dbr_policy_endpoint():
 def dbr_price_endpoint():
   global hits, errors
   hits += 1
-  url = api_endpoints["dbr_price"]
   try:
-    response = requests.get(url)
-    data = response.json()
-    data = dbr_price(data)
+    data = dbr_price()
     printToJson(data, "dbr_price")
     return data
   except:
@@ -148,11 +145,8 @@ def dbr_price_endpoint():
 def tvl_endpoint():
   global hits, errors
   hits += 1
-  url = api_endpoints["tvl"]
   try:
-    response = requests.get(url)
-    data = response.json()
-    data = tvl(data)
+    data = tvl()
     printToJson(data, "tvl")
     return data
   except:
@@ -167,11 +161,8 @@ def tvl_endpoint():
 def firm_endpoint():
   global hits, errors
   hits += 1
-  url = api_endpoints["firm"]
   try:
-    response = requests.get(url)
-    data = response.json()
-    data = firm(data)
+    data = firm()
     printToJson(data, "firm")
     return data
   except:
@@ -186,11 +177,8 @@ def firm_endpoint():
 def positions_endpoint():
   global hits, errors
   hits += 1
-  url = api_endpoints["positions"]
   try:
-    response = requests.get(url)
-    data = response.json()
-    data = positions(data)
+    data = positions()
     printToJson(data, "positions")
     return data
   except:
@@ -206,7 +194,7 @@ def tvl_firm_endpoint():
   global hits, errors
   hits += 1
   try:
-    data = tvl_firm(api_endpoints)
+    data = tvl_firm()
     printToJson(data, "tvl_firm")
     return data
   except:
@@ -222,7 +210,7 @@ def dbr_issue_endpoint():
   global hits, errors
   hits += 1
   try:
-    data = dbr_issue(api_endpoints)
+    data = dbr_issue()
     printToJson(data, "dbr_issue")
     return data
   except:
@@ -238,30 +226,46 @@ def inv_stake_endpoint():
   global hits, errors
   hits += 1
   try:
-    data = inv_stake(api_endpoints)
+    data = inv_stake()
     printToJson(data, "inv_stake")
     return data
   except:
     errors += 1
     return jsonify({
       "success": False,
-      "message": "Error calculating inverted stake"
+      "message": "Error calculating inv stake"
     }), 500
 
 
 @app.route("/dbr_inv", methods=["GET"])
-def dbr_inv_endpoint():
+def dbr_per_inv_endpoint():
   global hits, errors
   hits += 1
   try:
-    data = dbr_per_inv(api_endpoints)
-    printToJson(data, "dbr_inv")
+    data = dbr_per_inv()
+    printToJson(data, "dbr_per_inv")
     return data
   except:
     errors += 1
     return jsonify({
       "success": False,
-      "message": "Error calculating DBR per inverted stake"
+      "message": "Error calculating DBR per inv stake"
+    }), 500
+
+
+@app.route("/inv_fx", methods=["GET"])
+def inv_fx_endpoint():
+  global hits, errors
+  hits += 1
+  try:
+    data = inv_fx()
+    printToJson(data, "inv_fx")
+    return data
+  except:
+    errors += 1
+    return jsonify({
+      "success": False,
+      "message": "Error calculating DBR per inv stake"
     }), 500
 
 

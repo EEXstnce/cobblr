@@ -1,20 +1,12 @@
-import requests
 from clean.dbr import dbr_policy, dbr_price
 
 
-def dbr_issue(api_endpoints):
-  url = api_endpoints["dbr_policy"]
-  response = requests.get(url)
-  data = response.json(strict=False)
-  policy = dbr_policy(data)
+def dbr_issue():
+  policy = dbr_policy()
   pol = policy['dbr_policy']
 
-  url = api_endpoints["dbr_price"]
-  response = requests.get(url)
-  data = response.json(strict=False)
-  price = dbr_price(data)
+  price = dbr_price()
   pr = price['dbr_price']
 
   issued = pol * pr
   return {"dbr_issue": issued}
-

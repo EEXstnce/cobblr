@@ -2,7 +2,10 @@ import requests
 import json
 
 
-def positions(data):
+def positions():
+  url = "https://www.inverse.finance/api/f2/firm-positions"
+  response = requests.get(url)
+  data = response.json()
   # Extract asset names and TVLs
   asset_data = []
   for item in data['positions']:
@@ -15,7 +18,5 @@ def positions(data):
     })
 
   # Format output
-  output = {
-    'positions': asset_data
-  }
+  output = {'positions': asset_data}
   return (output)

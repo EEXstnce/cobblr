@@ -2,20 +2,22 @@ import requests
 import json
 
 
-def tvl(data):
+def tvl():
+  url = "https://www.inverse.finance/api/f2/tvl"
+  response = requests.get(url)
+  data = response.json()
   # Extract asset names and TVLs
   asset_data = {}
   for item in data['firmTvls']:
     asset_data[item['market']['name']] = {'tvl': item['tvl']}
 
-  # Format output
-  # output = json.dumps(asset_data, indent=2, sort_keys=True)
-  # print(output)
-
   return asset_data
 
 
-def firm(data):
+def firm():
+  url = "https://www.inverse.finance/api/f2/fixed-markets"
+  response = requests.get(url)
+  data = response.json()
   # Extract asset names and TVLs
   asset_data = {}
   for item in data['markets']:
@@ -28,9 +30,6 @@ def firm(data):
       'supplyApyLow': item['supplyApyLow'],
       'borrowPaused': item['borrowPaused']
     }
-
-  # Format output
-  # output = json.dumps(asset_data, indent=2, sort_keys=True)
 
   return asset_data
 
