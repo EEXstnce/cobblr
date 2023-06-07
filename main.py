@@ -1,9 +1,11 @@
 import requests
 import os
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, make_response
 from werkzeug.exceptions import HTTPException
 from flask_cors import CORS
 from flask_caching import Cache
+from apscheduler.schedulers.background import BackgroundScheduler
+import time
 
 from clean.dbr import dbr_policy, dbr_price
 from clean.pce import tvl, firm, combine
@@ -17,6 +19,9 @@ from build.inv_fx import inv_fx, inv_mult
 from build.debt import debt
 
 from util import printToJson
+
+os.environ['TZ'] = 'UTC'
+time.tzset()
 
 app = Flask(__name__)
 CORS(app)
@@ -46,10 +51,29 @@ endpoint_functions = {
 }
 
 
+def update_cache():
+  for name, func in endpoint_functions.items():
+    try:
+      data = func()
+      cache.set(name, data, timeout=5 * 60)
+    except Exception as e:
+      print(f"Error updating cache for {name}: {e}")
+
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(update_cache, 'interval', minutes=5)
+scheduler.start()
+
+
 @app.route('/', defaults={'path': ''}, methods=['OPTIONS'])
 @app.route('/<path:path>', methods=['OPTIONS'])
 def catch_all_options(path):
   return '', 200
+
+
+@app.route('/favicon.ico')
+def favicon():
+  return '', 204
 
 
 @app.route("/")
@@ -117,22 +141,33 @@ def api():
 
 
 def endpoint(func, name):
-  global hits, errors
-  hits += 1
-  try:
-    data = func()
-    printToJson(data, name)
-    cache.set(name, data, timeout=5 * 60)  # Cache data for 5 minutes
-    return data
-  except:
-    errors += 1
-    cached_data = cache.get(name)  # Get cached data if it exists
-    if cached_data is not None:
-      return cached_data
-    return jsonify({
-      "success": False,
-      "message": f"Error fetching {name} data"
-    }), 500
+  cached_data = cache.get(name)
+  if cached_data is not None:
+    return cached_data
+  else:
+    global hits, errors
+    hits += 1
+    try:
+      # Attempt to get data and save to cache
+      data = func()
+      printToJson(data, name)
+      cache.set(name, data, timeout=5 * 60)  # Cache data for 5 minutes
+      return make_response(jsonify(data), 200)
+    except Exception as e:
+      # If error, increase error count and try to return cached data
+      errors += 1
+      print(f"Error fetching {name} data: {e}")
+      cached_data = cache.get(name)  # Get cached data if it exists
+      if cached_data is not None:
+        return make_response(jsonify(cached_data), 200)
+      else:
+        return make_response(
+          jsonify({
+            "success":
+            False,
+            "message":
+            f"Error fetching {name} data and no cache is available."
+          }), 500)
 
 
 @app.route("/dbr_policy", methods=["GET"])
