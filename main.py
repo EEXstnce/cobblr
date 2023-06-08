@@ -1,3 +1,4 @@
+import functools
 import requests
 import os
 from flask import Flask, request, render_template, jsonify, make_response
@@ -55,7 +56,7 @@ def update_cache():
   for name, func in endpoint_functions.items():
     try:
       data = func()
-      cache.set(name, data, timeout=5 * 60)
+      cache.set(name, data, timeout=30 * 60)
     except Exception as e:
       print(f"Error updating cache for {name}: {e}")
 
@@ -170,65 +171,26 @@ def endpoint(func, name):
           }), 500)
 
 
-@app.route("/dbr_policy", methods=["GET"])
-def dbr_policy_endpoint():
-  return endpoint(dbr_policy, "dbr_policy")
+# Define endpoint function mappings
+api_functions = {
+  "/dbr_policy": dbr_policy,
+  "/dbr_price": dbr_price,
+  "/tvl": tvl,
+  "/firm": firm,
+  "/positions": positions,
+  "/debt": debt,
+  "/tvl_firm": tvl_firm,
+  "/dbr_issue": dbr_issue,
+  "/inv_stake": inv_stake,
+  "/dbr_inv": dbr_per_inv,
+  "/inv_fx": inv_fx,
+  "/inv_mult": inv_mult,
+}
 
-
-@app.route("/dbr_price", methods=["GET"])
-def dbr_price_endpoint():
-  return endpoint(dbr_price, "dbr_price")
-
-
-@app.route("/tvl", methods=["GET"])
-def tvl_endpoint():
-  return endpoint(tvl, "tvl")
-
-
-@app.route("/firm", methods=["GET"])
-def firm_endpoint():
-  return endpoint(firm, "firm")
-
-
-@app.route("/positions", methods=["GET"])
-def positions_endpoint():
-  return endpoint(positions, "positions")
-
-
-@app.route("/debt", methods=["GET"])
-def debt_endpoint():
-  return endpoint(debt, "debt")
-
-
-@app.route("/tvl_firm", methods=["GET"])
-def tvl_firm_endpoint():
-  return endpoint(tvl_firm, "tvl_firm")
-
-
-@app.route("/dbr_issue", methods=["GET"])
-def dbr_issue_endpoint():
-  return endpoint(dbr_issue, "dbr_issue")
-
-
-@app.route("/inv_stake", methods=["GET"])
-def inv_stake_endpoint():
-  return endpoint(inv_stake, "inv_stake")
-
-
-@app.route("/dbr_inv", methods=["GET"])
-def dbr_inv_endpoint():
-  return endpoint(dbr_per_inv, "dbr_inv")
-
-
-@app.route("/inv_fx", methods=["GET"])
-def inv_fx_endpoint():
-  return endpoint(inv_fx, "inv_fx")
-
-
-@app.route("/inv_mult", methods=["GET"])
-def inv_mult_endpoint():
-  return endpoint(inv_mult, "inv_mult")
-
+for route, func in api_functions.items():
+  route_func = functools.partial(endpoint, func, route)
+  route_func.__name__ = f"{func.__name__}_endpoint"  # Flask uses the function name as an endpoint
+  app.route(route, methods=["GET"])(route_func)
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0", port=8000, debug=False)
