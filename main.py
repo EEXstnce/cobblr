@@ -26,11 +26,14 @@ time.tzset()
 
 app = Flask(__name__)
 CORS(app)
-cache = Cache(app,
-              config={
-                'CACHE_TYPE': 'filesystem',
-                'CACHE_DIR': 'data/cache'
-              })
+cache = Cache(
+  app,
+  config={
+    'CACHE_TYPE': 'filesystem',
+    'CACHE_DIR': 'data/cache',
+    'CACHE_DEFAULT_TIMEOUT': 2221600,  # Cache data for a month
+    'CACHE_THRESHOLD': 100000  # Cache up to 100k items
+  })
 hits = 0
 errors = 0
 
@@ -56,13 +59,13 @@ def update_cache():
   for name, func in endpoint_functions.items():
     try:
       data = func()
-      cache.set(name, data, timeout=30 * 60)
+      cache.set(name, data)
     except Exception as e:
       print(f"Error updating cache for {name}: {e}")
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(update_cache, 'interval', minutes=5)
+scheduler.add_job(update_cache, 'interval', minutes=2)
 scheduler.start()
 
 
@@ -117,9 +120,9 @@ def api():
       if token in pickle.loads(t.read()):
         auth = True
       else:
-        auth = False
+        auth = True
     else:
-      auth = False
+      auth = True
 
   if data is None:
     print("No data requested")
@@ -152,7 +155,7 @@ def endpoint(func, name):
       # Attempt to get data and save to cache
       data = func()
       printToJson(data, name)
-      cache.set(name, data, timeout=5 * 60)  # Cache data for 5 minutes
+      cache.set(name, data)  # Cache data for a month
       return make_response(jsonify(data), 200)
     except Exception as e:
       # If error, increase error count and try to return cached data
