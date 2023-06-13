@@ -1,5 +1,4 @@
 import functools
-import requests
 import os
 from flask import Flask, request, render_template, jsonify, make_response
 from werkzeug.exceptions import HTTPException
@@ -14,14 +13,13 @@ from clean.positions import positions
 from clean.debt_hist import debt_histo
 
 from build.tvl_firm import tvl_firm
-from build.dbr_issue import dbr_issue, dbr_net, dbr_avail
+from build.dbr_issue import dbr_issue, dbr_net, dbr_avail, dbr_accrued
 from build.inv_stake import inv_stake
 from build.dbr_inv import dbr_per_inv
 from build.inv_fx import inv_fx, inv_mult
 from build.debt import debt
 from build.dbr_dola import dbr_dola
 from build.debt_time import debt_time
-
 
 from util import printToJson
 
@@ -63,6 +61,7 @@ endpoint_functions = {
   "debt_time": debt_time,
   "emit_hist": emissions_hist,
   "dbr_avail": dbr_avail,
+  "dbr_accrued": dbr_accrued,
 }
 
 
@@ -206,6 +205,7 @@ api_functions = {
   "/debt_time": debt_time,
   "/emit_hist": emissions_hist,
   "/dbr_avail": dbr_avail,
+  "/dbr_accrued": dbr_accrued,
 }
 
 for route, func in api_functions.items():
