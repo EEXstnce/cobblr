@@ -7,17 +7,19 @@ from flask_cors import CORS
 from flask_caching import Cache
 from apscheduler.schedulers.background import BackgroundScheduler
 import time
+import json
 
-from clean.dbr import dbr_policy, dbr_price
+from clean.dbr import dbr_policy, dbr_price, dbr_emissions
 from clean.pce import tvl, firm, combine
 from clean.positions import positions
 
 from build.tvl_firm import tvl_firm
-from build.dbr_issue import dbr_issue
+from build.dbr_issue import dbr_issue, dbr_net
 from build.inv_stake import inv_stake
 from build.dbr_inv import dbr_per_inv
 from build.inv_fx import inv_fx, inv_mult
 from build.debt import debt
+from build.dbr_dola import dbr_dola
 
 from util import printToJson
 
@@ -51,7 +53,10 @@ endpoint_functions = {
   "tvl_firm": tvl_firm,
   "dbr_issue": dbr_issue,
   "inv_stake": inv_stake,
-  "dbr_inv": dbr_per_inv
+  "dbr_inv": dbr_per_inv,
+  "dbr_emit": dbr_emissions,
+  "dbr_net": dbr_net,
+  "dbr_dola": dbr_dola,
 }
 
 
@@ -145,33 +150,41 @@ def api():
 
 
 def endpoint(func, name):
-  cached_data = cache.get(name)
-  if cached_data is not None:
-    return cached_data
-  else:
-    global hits, errors
-    hits += 1
-    try:
-      # Attempt to get data and save to cache
-      data = func()
-      printToJson(data, name)
-      cache.set(name, data)  # Cache data for a month
-      return make_response(jsonify(data), 200)
-    except Exception as e:
-      # If error, increase error count and try to return cached data
-      errors += 1
-      print(f"Error fetching {name} data: {e}")
-      cached_data = cache.get(name)  # Get cached data if it exists
-      if cached_data is not None:
-        return make_response(jsonify(cached_data), 200)
-      else:
-        return make_response(
-          jsonify({
-            "success":
-            False,
-            "message":
-            f"Error fetching {name} data and no cache is available."
-          }), 500)
+    cached_data = cache.get(name)
+    if cached_data is not None:
+        return cached_data
+    else:
+        global hits, errors
+        hits += 1
+        try:
+            # Attempt to get data
+            data = func()
+            printToJson(data, name)
+            cache.set(name, data)  # Cache data for a month
+            return make_response(jsonify(data), 200)
+        except Exception as e:
+            # If error, increase error count and try to return cached data
+            errors += 1
+            print(f"Error fetching {name} data: {e}")
+            cached_data = cache.get(name)  # Get cached data if it exists
+            if cached_data is not None:
+                return make_response(jsonify(cached_data), 200)
+            else:
+                return make_response(
+                    jsonify({
+                        "success": False,
+                        "message": f"Error fetching {name} data and no cache is available."
+                    }), 500)
+        except json.JSONDecodeError as e:
+            # Handle JSON decoding error
+            errors += 1
+            print(f"Error parsing JSON for {name}: {e}")
+            return make_response(
+                jsonify({
+                    "success": False,
+                    "message": f"Error parsing JSON for {name}."
+                }), 500)
+
 
 
 # Define endpoint function mappings
@@ -188,6 +201,9 @@ api_functions = {
   "/dbr_inv": dbr_per_inv,
   "/inv_fx": inv_fx,
   "/inv_mult": inv_mult,
+  "/dbr_emit": dbr_emissions,
+  "/dbr_net": dbr_net,
+  "/dbr_dola": dbr_dola,
 }
 
 for route, func in api_functions.items():

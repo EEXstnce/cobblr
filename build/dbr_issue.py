@@ -1,4 +1,5 @@
 from clean.dbr import dbr_policy, dbr_price
+from build.debt import debt
 
 
 def dbr_issue():
@@ -10,3 +11,14 @@ def dbr_issue():
 
   issued = pol * pr
   return {"dbr_issue": issued}
+
+def dbr_net():
+  issue = dbr_policy()
+  iss = issue['dbr_policy']
+  
+  dt = debt()
+  d = dt["debt"]
+
+  net = iss - d
+  
+  return {"dbr_net": net}
