@@ -7,19 +7,21 @@ from flask_cors import CORS
 from flask_caching import Cache
 from apscheduler.schedulers.background import BackgroundScheduler
 import time
-import json
 
-from clean.dbr import dbr_policy, dbr_price, dbr_emissions
+from clean.dbr import dbr_policy, dbr_price, dbr_emissions, emissions_hist
 from clean.pce import tvl, firm, combine
 from clean.positions import positions
+from clean.debt_hist import debt_histo
 
 from build.tvl_firm import tvl_firm
-from build.dbr_issue import dbr_issue, dbr_net
+from build.dbr_issue import dbr_issue, dbr_net, dbr_avail
 from build.inv_stake import inv_stake
 from build.dbr_inv import dbr_per_inv
 from build.inv_fx import inv_fx, inv_mult
 from build.debt import debt
 from build.dbr_dola import dbr_dola
+from build.debt_time import debt_time
+
 
 from util import printToJson
 
@@ -45,7 +47,8 @@ api_endpoints = {
   "firm": "https://www.inverse.finance/api/f2/fixed-markets",
   "positions": "https://www.inverse.finance/api/f2/firm-positions",
   "dbr_price": "https://www.inverse.finance/api/dbr",
-  "dbr_policy": "https://www.inverse.finance/api/transparency/dbr-emissions"
+  "dbr_policy": "https://www.inverse.finance/api/transparency/dbr-emissions",
+  "debt_hist": "https://www.inverse.finance/api/f2/debt-histo",
 }
 
 # Define endpoint function mappings
@@ -57,6 +60,9 @@ endpoint_functions = {
   "dbr_emit": dbr_emissions,
   "dbr_net": dbr_net,
   "dbr_dola": dbr_dola,
+  "debt_time": debt_time,
+  "emit_hist": emissions_hist,
+  "dbr_avail": dbr_avail,
 }
 
 
@@ -150,41 +156,33 @@ def api():
 
 
 def endpoint(func, name):
-    cached_data = cache.get(name)
-    if cached_data is not None:
-        return cached_data
-    else:
-        global hits, errors
-        hits += 1
-        try:
-            # Attempt to get data
-            data = func()
-            printToJson(data, name)
-            cache.set(name, data)  # Cache data for a month
-            return make_response(jsonify(data), 200)
-        except Exception as e:
-            # If error, increase error count and try to return cached data
-            errors += 1
-            print(f"Error fetching {name} data: {e}")
-            cached_data = cache.get(name)  # Get cached data if it exists
-            if cached_data is not None:
-                return make_response(jsonify(cached_data), 200)
-            else:
-                return make_response(
-                    jsonify({
-                        "success": False,
-                        "message": f"Error fetching {name} data and no cache is available."
-                    }), 500)
-        except json.JSONDecodeError as e:
-            # Handle JSON decoding error
-            errors += 1
-            print(f"Error parsing JSON for {name}: {e}")
-            return make_response(
-                jsonify({
-                    "success": False,
-                    "message": f"Error parsing JSON for {name}."
-                }), 500)
-
+  cached_data = cache.get(name)
+  if cached_data is not None:
+    return cached_data
+  else:
+    global hits, errors
+    hits += 1
+    try:
+      # Attempt to get data and save to cache
+      data = func()
+      printToJson(data, name)
+      cache.set(name, data)  # Cache data for a month
+      return make_response(jsonify(data), 200)
+    except Exception as e:
+      # If error, increase error count and try to return cached data
+      errors += 1
+      print(f"Error fetching {name} data: {e}")
+      cached_data = cache.get(name)  # Get cached data if it exists
+      if cached_data is not None:
+        return make_response(jsonify(cached_data), 200)
+      else:
+        return make_response(
+          jsonify({
+            "success":
+            False,
+            "message":
+            f"Error fetching {name} data and no cache is available."
+          }), 500)
 
 
 # Define endpoint function mappings
@@ -204,6 +202,10 @@ api_functions = {
   "/dbr_emit": dbr_emissions,
   "/dbr_net": dbr_net,
   "/dbr_dola": dbr_dola,
+  "/debt_hist": debt_histo,
+  "/debt_time": debt_time,
+  "/emit_hist": emissions_hist,
+  "/dbr_avail": dbr_avail,
 }
 
 for route, func in api_functions.items():

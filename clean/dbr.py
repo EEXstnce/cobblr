@@ -28,3 +28,11 @@ def dbr_emissions():
   max_element = max_timestamp_element["accEmissions"]
   
   return {"dbr_emit": max_element}
+
+def emissions_hist():
+  url = "https://www.inverse.finance/api/transparency/dbr-emissions"
+  response = requests.get(url)
+  data = response.json()
+  rates = data["rewardRatesHistory"]["rates"]
+  
+  return rates
