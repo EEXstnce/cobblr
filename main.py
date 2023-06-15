@@ -6,6 +6,7 @@ from flask_cors import CORS
 from flask_caching import Cache
 from apscheduler.schedulers.background import BackgroundScheduler
 import time
+import pickle
 
 from clean.dbr import dbr_policy, dbr_price, dbr_emissions, emissions_hist
 from clean.pce import tvl, firm, combine
@@ -14,12 +15,14 @@ from clean.debt_hist import debt_histo
 
 from build.tvl_firm import tvl_firm
 from build.dbr_issue import dbr_issue, dbr_net, dbr_avail, dbr_accrued
+from build.dbr_float import filter_stakers
 from build.inv_stake import inv_stake
 from build.dbr_inv import dbr_per_inv
 from build.inv_fx import inv_fx, inv_mult
 from build.debt import debt
 from build.dbr_dola import dbr_dola
 from build.debt_time import debt_time
+from build.stake_debt import stake_debt
 
 from util import printToJson
 
@@ -62,6 +65,8 @@ endpoint_functions = {
   "emit_hist": emissions_hist,
   "dbr_avail": dbr_avail,
   "dbr_accrued": dbr_accrued,
+  "filter_stakers": filter_stakers,
+  "stake_debt": stake_debt,
 }
 
 
@@ -206,6 +211,8 @@ api_functions = {
   "/emit_hist": emissions_hist,
   "/dbr_avail": dbr_avail,
   "/dbr_accrued": dbr_accrued,
+  "/filter_stakers": filter_stakers,
+  "/stake_debt": stake_debt,
 }
 
 for route, func in api_functions.items():

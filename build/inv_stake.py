@@ -9,3 +9,4 @@ def inv_stake():
   positions = [p for p in data['positions'] if p['marketIndex'] == 5]
   inv_staked = sum(p['deposits'] for p in positions)
   return {"inv_stake": inv_staked}
+
