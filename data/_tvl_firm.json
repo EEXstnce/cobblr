@@ -1,0 +1,62 @@
+{"timestamp":21/06/2023 19:14:31,{
+  "WETH": {
+    "tvl": 184099.8691753343,
+    "price": 1875.82733484,
+    "totalDebt": 99619.79984760284,
+    "collateralFactor": 0.8,
+    "dolaLiquidity": 900380.2001523972,
+    "supplyApy": 0,
+    "supplyApyLow": 0,
+    "borrowPaused": false
+  },
+  "stETH": {
+    "tvl": 85578.05531171197,
+    "price": 1876.1,
+    "totalDebt": 34122.920930832224,
+    "collateralFactor": 0.8,
+    "dolaLiquidity": 965877.0790691677,
+    "supplyApy": 3.8,
+    "supplyApyLow": 0,
+    "borrowPaused": false
+  },
+  "gOHM": {
+    "tvl": 2249859.8909284235,
+    "price": 2923.136857195526,
+    "totalDebt": 1304064.770679508,
+    "collateralFactor": 0.75,
+    "dolaLiquidity": 1195961.871011082,
+    "supplyApy": 2.332840360443744,
+    "supplyApyLow": 0,
+    "borrowPaused": false
+  },
+  "CRV": {
+    "tvl": 16224127.577373935,
+    "price": 0.68482,
+    "totalDebt": 6698825.143049289,
+    "collateralFactor": 0.75,
+    "dolaLiquidity": 301174.8569507118,
+    "supplyApy": 0,
+    "supplyApyLow": 0,
+    "borrowPaused": false
+  },
+  "cvxCRV": {
+    "tvl": 10922185.901815666,
+    "price": 0.6709886844840733,
+    "totalDebt": 2974147.9203216066,
+    "collateralFactor": 0.5,
+    "dolaLiquidity": 525852.0796783932,
+    "supplyApy": 27.192425687548468,
+    "supplyApyLow": 25.690352068135404,
+    "borrowPaused": false
+  },
+  "INV": {
+    "tvl": 3420133.1650388613,
+    "price": 38.35,
+    "totalDebt": 0,
+    "collateralFactor": 0,
+    "dolaLiquidity": 0,
+    "supplyApy": 26.349248322034647,
+    "supplyApyLow": 0,
+    "borrowPaused": true
+  }
+}},

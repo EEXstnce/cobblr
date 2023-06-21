@@ -23,8 +23,9 @@ def dbr_net():
   d = dt["debt"]
 
   net = iss - d
+  weekly = net / 52
 
-  return {"dbr_net": net}
+  return {"dbr_net": net, "flat_demand": weekly}
 
 
 def dbr_avail():

@@ -1,25 +1,23 @@
-import requests
 from build.dbr_inv import dbr_per_inv
 from clean.dbr import dbr_price
 from build.stake_debt import stake_debt
+from clean.positions import positions
 
 
 def filter_stakers():
   dbr_per = dbr_per_inv()
   dbr = dbr_per["dollars_per_inv"]
-  
+
   db = dbr_price()
   dbr_cost = db["dbr_price"]
 
   deb = stake_debt()
   de = deb["burn"]
 
-  url = "https://www.inverse.finance/api/f2/firm-positions"
-  response = requests.get(url)
-  data = response.json()
-  positions = [p for p in data['positions'] if p['marketIndex'] == 5]
+  data = positions()
+  position = [p for p in data['positions'] if p['marketIndex'] == 5]
 
-  deposits = [p['deposits'] for p in positions]
+  deposits = [p['deposits'] for p in position]
   deposits = sorted(deposits)
 
   costs = 45

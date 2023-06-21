@@ -1,6 +1,14 @@
 import os
 import json
 import time
+import requests
+
+
+def getData(url_in):
+  url = url_in
+  response = requests.get(url)
+  data = response.json()
+  return data
 
 
 def format_output(output):

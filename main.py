@@ -1,18 +1,18 @@
 import functools
 import os
+import time
+import pickle
+
 from flask import Flask, request, render_template, jsonify, make_response
 from werkzeug.exceptions import HTTPException
 from flask_cors import CORS
 from flask_caching import Cache
 from apscheduler.schedulers.background import BackgroundScheduler
-import time
-import pickle
 
 from clean.dbr import dbr_policy, dbr_price, dbr_emissions, emissions_hist
-from clean.pce import tvl, firm, combine
+from clean.pce import tvl, firm
 from clean.positions import positions
 from clean.debt_hist import debt_histo
-
 from build.tvl_firm import tvl_firm
 from build.dbr_issue import dbr_issue, dbr_net, dbr_avail, dbr_accrued
 from build.dbr_float import filter_stakers
@@ -23,7 +23,7 @@ from build.debt import debt
 from build.dbr_dola import dbr_dola
 from build.debt_time import debt_time
 from build.stake_debt import stake_debt
-
+from build.loans import loans
 from util import printToJson
 
 os.environ['TZ'] = 'UTC'
@@ -42,45 +42,57 @@ cache = Cache(
 hits = 0
 errors = 0
 
-# Define API endpoints
-api_endpoints = {
-  "tvl": "https://www.inverse.finance/api/f2/tvl",
-  "firm": "https://www.inverse.finance/api/f2/fixed-markets",
-  "positions": "https://www.inverse.finance/api/f2/firm-positions",
-  "dbr_price": "https://www.inverse.finance/api/dbr",
-  "dbr_policy": "https://www.inverse.finance/api/transparency/dbr-emissions",
-  "debt_hist": "https://www.inverse.finance/api/f2/debt-histo",
-}
-
 # Define endpoint function mappings
-endpoint_functions = {
-  "tvl_firm": tvl_firm,
-  "dbr_issue": dbr_issue,
-  "inv_stake": inv_stake,
-  "dbr_inv": dbr_per_inv,
-  "dbr_emit": dbr_emissions,
-  "dbr_net": dbr_net,
-  "dbr_dola": dbr_dola,
-  "debt_time": debt_time,
-  "emit_hist": emissions_hist,
-  "dbr_avail": dbr_avail,
-  "dbr_accrued": dbr_accrued,
-  "filter_stakers": filter_stakers,
-  "stake_debt": stake_debt,
+api_functions = {
+  "/dbr/policy":
+  (dbr_policy, "https://www.inverse.finance/api/transparency/dbr-emissions"),
+  "/dbr/price": (dbr_price, "https://www.inverse.finance/api/dbr"),
+  "/tvl": (tvl, "https://www.inverse.finance/api/f2/tvl"),
+  "/firm": (firm, "https://www.inverse.finance/api/f2/fixed-markets"),
+  "/positions":
+  (positions, "https://www.inverse.finance/api/f2/firm-positions"),
+  "/firm/debt": (debt, None),
+  "/firm/tvl": (tvl_firm, None),
+  "/dbr/issue": (dbr_issue, None),
+  "/inv/stake": (inv_stake, None),
+  "/inv/dbr": (dbr_per_inv, None),
+  "/inv/fx": (inv_fx, None),
+  "/inv/mult": (inv_mult, None),
+  "/dbr/claim": (dbr_emissions, None),
+  "/dbr/net": (dbr_net, None),
+  "/inv/dbr_dola": (dbr_dola, None),
+  "/firm/debt/history":
+  (debt_histo, "https://www.inverse.finance/api/f2/debt-histo"),
+  "/dbr/burnt": (debt_time, None),
+  "/dbr/policy/history": (emissions_hist, None),
+  "/dbr/rewarded": (dbr_avail, None),
+  "/dbr/claimable": (dbr_accrued, None),
+  "/inv/dbr/claimable": (filter_stakers, None),
+  "/stake_debt": (stake_debt, None),
+  "/loans": (loans, "https://www.inverse.finance/api/f2/dbr-deficits"),
 }
 
 
 def update_cache():
-  for name, func in endpoint_functions.items():
+  for name, (func, url) in api_functions.items():
     try:
-      data = func()
-      cache.set(name, data)
+      # Get current data
+      current_data = cache.get(name)
+
+      # Get new data
+      new_data = func()
+
+      # If new data is different from current data, update the cache
+      if new_data != current_data:
+        cache.set(name, new_data)
+
     except Exception as e:
       print(f"Error updating cache for {name}: {e}")
 
 
+# Schedule the update_cache function to run every minute instead of every 2 minutes
 scheduler = BackgroundScheduler()
-scheduler.add_job(update_cache, 'interval', minutes=2)
+scheduler.add_job(update_cache, 'interval', minutes=1)
 scheduler.start()
 
 
@@ -160,7 +172,8 @@ def api():
 
 
 def endpoint(func, name):
-  cached_data = cache.get(name)
+  cache_key = name.replace("/", "_")  # replace slashes with underscores
+  cached_data = cache.get(cache_key)
   if cached_data is not None:
     return cached_data
   else:
@@ -169,14 +182,14 @@ def endpoint(func, name):
     try:
       # Attempt to get data and save to cache
       data = func()
-      printToJson(data, name)
-      cache.set(name, data)  # Cache data for a month
+      printToJson(data, cache_key)  # use modified key here
+      cache.set(cache_key, data)  # Cache data for a month
       return make_response(jsonify(data), 200)
     except Exception as e:
       # If error, increase error count and try to return cached data
       errors += 1
       print(f"Error fetching {name} data: {e}")
-      cached_data = cache.get(name)  # Get cached data if it exists
+      cached_data = cache.get(cache_key)  # Get cached data if it exists
       if cached_data is not None:
         return make_response(jsonify(cached_data), 200)
       else:
@@ -189,33 +202,7 @@ def endpoint(func, name):
           }), 500)
 
 
-# Define endpoint function mappings
-api_functions = {
-  "/dbr_policy": dbr_policy,
-  "/dbr_price": dbr_price,
-  "/tvl": tvl,
-  "/firm": firm,
-  "/positions": positions,
-  "/debt": debt,
-  "/tvl_firm": tvl_firm,
-  "/dbr_issue": dbr_issue,
-  "/inv_stake": inv_stake,
-  "/dbr_inv": dbr_per_inv,
-  "/inv_fx": inv_fx,
-  "/inv_mult": inv_mult,
-  "/dbr_emit": dbr_emissions,
-  "/dbr_net": dbr_net,
-  "/dbr_dola": dbr_dola,
-  "/debt_hist": debt_histo,
-  "/debt_time": debt_time,
-  "/emit_hist": emissions_hist,
-  "/dbr_avail": dbr_avail,
-  "/dbr_accrued": dbr_accrued,
-  "/filter_stakers": filter_stakers,
-  "/stake_debt": stake_debt,
-}
-
-for route, func in api_functions.items():
+for route, (func, url) in api_functions.items():
   route_func = functools.partial(endpoint, func, route)
   route_func.__name__ = f"{func.__name__}_endpoint"  # Flask uses the function name as an endpoint
   app.route(route, methods=["GET"])(route_func)

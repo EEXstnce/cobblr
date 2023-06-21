@@ -1,11 +1,9 @@
-import requests
-import json
+from util import getData
 
 
 def positions():
   url = "https://www.inverse.finance/api/f2/firm-positions"
-  response = requests.get(url)
-  data = response.json()
+  data = getData(url)
   # Extract asset names and TVLs
   asset_data = []
   for item in data['positions']:

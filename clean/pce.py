@@ -1,11 +1,14 @@
-import requests
-import json
+from util import getData
+
+
+def tvl_get():
+  url = "https://www.inverse.finance/api/f2/tvl"
+  data = getData(url)
+  return data
 
 
 def tvl():
-  url = "https://www.inverse.finance/api/f2/tvl"
-  response = requests.get(url)
-  data = response.json()
+  data = tvl_get()
   # Extract asset names and TVLs
   asset_data = {}
   for item in data['firmTvls']:
@@ -14,10 +17,14 @@ def tvl():
   return asset_data
 
 
-def firm():
+def firm_get():
   url = "https://www.inverse.finance/api/f2/fixed-markets"
-  response = requests.get(url)
-  data = response.json()
+  data = getData(url)
+  return data
+
+
+def firm():
+  data = firm_get()
   # Extract asset names and TVLs
   asset_data = {}
   for item in data['markets']:
