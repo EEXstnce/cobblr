@@ -1,0 +1,42 @@
+{"timestamp":22/06/2023 14:27:30,[
+  {
+    "timestamp": 1684454400000,
+    "yearlyRewardRate": 0,
+    "rewardRate": 0
+  },
+  {
+    "timestamp": 1684713600000,
+    "yearlyRewardRate": 3999999.9999999893,
+    "rewardRate": 0.126839167935058
+  },
+  {
+    "timestamp": 1684954800000,
+    "yearlyRewardRate": 5000000.000000002,
+    "rewardRate": 0.158548959918823
+  },
+  {
+    "timestamp": 1685199507308,
+    "rewardRate": 0.190258751902588,
+    "yearlyRewardRate": 6000000.000000016
+  },
+  {
+    "timestamp": 1685632448444,
+    "rewardRate": 0.221968543886352,
+    "yearlyRewardRate": 6999999.999999997
+  },
+  {
+    "timestamp": 1685717419813,
+    "rewardRate": 0.253678335870117,
+    "yearlyRewardRate": 8000000.00000001
+  },
+  {
+    "timestamp": 1685839202567,
+    "rewardRate": 0.285388127853881,
+    "yearlyRewardRate": 8999999.999999993
+  },
+  {
+    "timestamp": 1685969125562,
+    "rewardRate": 0.317097919837646,
+    "yearlyRewardRate": 10000000.000000004
+  }
+]},

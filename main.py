@@ -2,6 +2,8 @@ import functools
 import os
 import time
 import pickle
+import json
+import importlib
 
 from flask import Flask, request, render_template, jsonify, make_response
 from werkzeug.exceptions import HTTPException
@@ -9,21 +11,6 @@ from flask_cors import CORS
 from flask_caching import Cache
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from clean.dbr import dbr_policy, dbr_price, dbr_emissions, emissions_hist
-from clean.pce import tvl, firm
-from clean.positions import positions
-from clean.debt_hist import debt_histo
-from build.tvl_firm import tvl_firm
-from build.dbr_issue import dbr_issue, dbr_net, dbr_avail, dbr_accrued
-from build.dbr_float import filter_stakers
-from build.inv_stake import inv_stake
-from build.dbr_inv import dbr_per_inv
-from build.inv_fx import inv_fx, inv_mult
-from build.debt import debt
-from build.dbr_dola import dbr_dola
-from build.debt_time import debt_time
-from build.stake_debt import stake_debt
-from build.loans import loans
 from util import printToJson
 
 os.environ['TZ'] = 'UTC'
@@ -42,39 +29,32 @@ cache = Cache(
 hits = 0
 errors = 0
 
-# Define endpoint function mappings
-api_functions = {
-  "/dbr/policy":
-  (dbr_policy, "https://www.inverse.finance/api/transparency/dbr-emissions"),
-  "/dbr/price": (dbr_price, "https://www.inverse.finance/api/dbr"),
-  "/tvl": (tvl, "https://www.inverse.finance/api/f2/tvl"),
-  "/firm": (firm, "https://www.inverse.finance/api/f2/fixed-markets"),
-  "/positions":
-  (positions, "https://www.inverse.finance/api/f2/firm-positions"),
-  "/firm/debt": (debt, None),
-  "/firm/tvl": (tvl_firm, None),
-  "/dbr/issue": (dbr_issue, None),
-  "/inv/stake": (inv_stake, None),
-  "/inv/dbr": (dbr_per_inv, None),
-  "/inv/fx": (inv_fx, None),
-  "/inv/mult": (inv_mult, None),
-  "/dbr/claim": (dbr_emissions, None),
-  "/dbr/net": (dbr_net, None),
-  "/inv/dbr_dola": (dbr_dola, None),
-  "/firm/debt/history":
-  (debt_histo, "https://www.inverse.finance/api/f2/debt-histo"),
-  "/dbr/burnt": (debt_time, None),
-  "/dbr/policy/history": (emissions_hist, None),
-  "/dbr/rewarded": (dbr_avail, None),
-  "/dbr/claimable": (dbr_accrued, None),
-  "/inv/dbr/claimable": (filter_stakers, None),
-  "/stake_debt": (stake_debt, None),
-  "/loans": (loans, "https://www.inverse.finance/api/f2/dbr-deficits"),
+# Load API function and configuration from JSON file
+with open("api_func_config.json", "r") as config_file:
+  config_data = json.load(config_file)
+
+# Retrieve functions configuration from the loaded data
+functions_config = {
+  route: {
+    "func": config_data[route]["func"],
+    "url": config_data[route]["url"],
+    "alias": config_data[route]["alias"]
+  }
+  for route in config_data
 }
+
+api_functions = {}
+
+# Dynamically import functions based on configuration
+for route, config in functions_config.items():
+  module_name, function_name = config["alias"].rsplit(".", 1)
+  module = importlib.import_module(module_name)
+  func = getattr(module, function_name)
+  api_functions[route] = (func, config["url"], config["alias"])
 
 
 def update_cache():
-  for name, (func, url) in api_functions.items():
+  for name, (func, url, alias) in api_functions.items():
     try:
       # Get current data
       current_data = cache.get(name)
@@ -202,7 +182,7 @@ def endpoint(func, name):
           }), 500)
 
 
-for route, (func, url) in api_functions.items():
+for route, (func, url, alias) in api_functions.items():
   route_func = functools.partial(endpoint, func, route)
   route_func.__name__ = f"{func.__name__}_endpoint"  # Flask uses the function name as an endpoint
   app.route(route, methods=["GET"])(route_func)

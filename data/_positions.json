@@ -1,0 +1,1138 @@
+{"timestamp":22/06/2023 00:45:44,{
+  "positions": [
+    {
+      "marketIndex": 0,
+      "user": "0xE58ED128325A33afD08e90187dB0640619819413",
+      "liquidatableDebt": 0,
+      "deposits": 0.1,
+      "debt": 40
+    },
+    {
+      "marketIndex": 0,
+      "user": "0x6535020cCeB810Bdb3F3cA5e93dE2460FF7989BB",
+      "liquidatableDebt": 0,
+      "deposits": 0.1,
+      "debt": 10
+    },
+    {
+      "marketIndex": 0,
+      "user": "0xE9964FD89A66B3748adCcF6AC3d65B50E67F7c38",
+      "liquidatableDebt": 0,
+      "deposits": 20.5,
+      "debt": 20000
+    },
+    {
+      "marketIndex": 0,
+      "user": "0xD5Dad5Db8C8839B15DB820c870222e698B91DAb5",
+      "liquidatableDebt": 0,
+      "deposits": 0.3032916324557178,
+      "debt": 100
+    },
+    {
+      "marketIndex": 0,
+      "user": "0x7fC530B07D5B4cE4D31255a2Ee23aF254Db12932",
+      "liquidatableDebt": 0,
+      "deposits": 46.5,
+      "debt": 53485.821385383606
+    },
+    {
+      "marketIndex": 0,
+      "user": "0xef628C724AD2843d12E060f0A5Da00403e77Ed6D",
+      "liquidatableDebt": 0,
+      "deposits": 5.1,
+      "debt": 4900
+    },
+    {
+      "marketIndex": 0,
+      "user": "0x9648b93cD94B6FF50892a511769705497C3Ce65C",
+      "liquidatableDebt": 0,
+      "deposits": 25.54,
+      "debt": 21083.97846221924
+    },
+    {
+      "marketIndex": 1,
+      "user": "0x2723723FDd3Db8ba2D6f0e1B333e90A7E60A0411",
+      "liquidatableDebt": 0,
+      "deposits": 12.259559304763656,
+      "debt": 6722.920930832225
+    },
+    {
+      "marketIndex": 1,
+      "user": "0xe32a8CF93AF8661Ec4708ef627b255801184ad2f",
+      "liquidatableDebt": 0,
+      "deposits": 18.57176815848383,
+      "debt": 18000
+    },
+    {
+      "marketIndex": 1,
+      "user": "0xBB20d477d4F22d7169ad4c5Bd67984362BE8bad0",
+      "liquidatableDebt": 0,
+      "deposits": 10.202891727404692,
+      "debt": 7000
+    },
+    {
+      "marketIndex": 1,
+      "user": "0x2F7949779e18c18298C2F253E34F9355403a5c4E",
+      "liquidatableDebt": 0,
+      "deposits": 4.580649585911956,
+      "debt": 2400
+    },
+    {
+      "marketIndex": 2,
+      "user": "0xE58ED128325A33afD08e90187dB0640619819413",
+      "liquidatableDebt": 0,
+      "deposits": 0.36783052053882015,
+      "debt": 524.9464181668305
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x8942AE01572653790D83959BEd158498fB2fa330",
+      "liquidatableDebt": 0,
+      "deposits": 2.3409295379500947,
+      "debt": 3486.945186803187
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x339Fd7c17CE670e7821F2f2ee94DDd49771483da",
+      "liquidatableDebt": 0,
+      "deposits": 4,
+      "debt": 5500
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x4cc47062a8c94550489FEdEbD7229a59A1B92Ae0",
+      "liquidatableDebt": 0,
+      "deposits": 2.0009126316136467,
+      "debt": 3000
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x5F72c9F0BdB6ce68CBb02C448D98206603007916",
+      "liquidatableDebt": 0,
+      "deposits": 0.33,
+      "debt": 36.55932516686234
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x0430C0cD447397D5411aEA19933165Bd96C46fe3",
+      "liquidatableDebt": 0,
+      "deposits": 271.85,
+      "debt": 451631.49945531436
+    },
+    {
+      "marketIndex": 2,
+      "user": "0xD73A15568daAcA9809952537eFa8269C327FF288",
+      "liquidatableDebt": 0,
+      "deposits": 100,
+      "debt": 138475.3549005393
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x343EE80f82440A498E48Ae186e066809750A055B",
+      "liquidatableDebt": 0,
+      "deposits": 41.66618428833321,
+      "debt": 74341.84827055372
+    },
+    {
+      "marketIndex": 2,
+      "user": "0xd1BB2B2871730BC8EF4D86764148C8975b22ce1E",
+      "liquidatableDebt": 0,
+      "deposits": 13.116825879858554,
+      "debt": 18328.819934893894
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x0174998c7e8fa81D45dE706a1c911497921a8122",
+      "liquidatableDebt": 0,
+      "deposits": 2.85,
+      "debt": 4650.439545232493
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x953F55eAcd3F8c6C9Cff2BD95EF57Aa2bCB970Ed",
+      "liquidatableDebt": 0,
+      "deposits": 0.20470677667150655,
+      "debt": 315.9701178913173
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x68BDeFf9aca67da30Ad7e78feACb3685A5c0863F",
+      "liquidatableDebt": 0,
+      "deposits": 0.8180520361482212,
+      "debt": 525.8599209948947
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x363ebeE409273d4cf83FD56a463b64634e61F79d",
+      "liquidatableDebt": 0,
+      "deposits": 13.121954844253883,
+      "debt": 9110.174322305478
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x7E7afAAfd27F723E7178cB439982ad286508Febc",
+      "liquidatableDebt": 0,
+      "deposits": 22.41527428216858,
+      "debt": 30783.368843703305
+    },
+    {
+      "marketIndex": 2,
+      "user": "0x44C832526EaBde3af5051E7dD36EF5410597a902",
+      "liquidatableDebt": 0,
+      "deposits": 58,
+      "debt": 102903.91380310059
+    },
+    {
+      "marketIndex": 2,
+      "user": "0xC0E0De939f26e71683452467942Aff455ca153E3",
+      "liquidatableDebt": 0,
+      "deposits": 236.59045805040662,
+      "debt": 465515.11320114136
+    },
+    {
+      "marketIndex": 3,
+      "user": "0x7a16fF8270133F063aAb6C9977183D9e72835428",
+      "liquidatableDebt": 0,
+      "deposits": 23628033.102806494,
+      "debt": 6679208.908538818
+    },
+    {
+      "marketIndex": 3,
+      "user": "0xe32a8CF93AF8661Ec4708ef627b255801184ad2f",
+      "liquidatableDebt": 0,
+      "deposits": 63050.068499739784,
+      "debt": 19616.234510469825
+    },
+    {
+      "marketIndex": 4,
+      "user": "0x9648b93cD94B6FF50892a511769705497C3Ce65C",
+      "liquidatableDebt": 0,
+      "deposits": 123656.74295505178,
+      "debt": 21879.47080052699
+    },
+    {
+      "marketIndex": 4,
+      "user": "0x7a16fF8270133F063aAb6C9977183D9e72835428",
+      "liquidatableDebt": 0,
+      "deposits": 6726447.434972409,
+      "debt": 1290000
+    },
+    {
+      "marketIndex": 4,
+      "user": "0xAAc0aa431c237C2C0B5f041c8e59B3f1a43aC78F",
+      "liquidatableDebt": 0,
+      "deposits": 3000000,
+      "debt": 397650.65071105957
+    },
+    {
+      "marketIndex": 4,
+      "user": "0xb34304Ae0234E50e723a6D6eCE336471be878A9F",
+      "liquidatableDebt": 0,
+      "deposits": 260862.35022132265,
+      "debt": 40810.484313964844
+    },
+    {
+      "marketIndex": 4,
+      "user": "0x9b422e571eb2cb9837efDc4F9087194d65Fb070A",
+      "liquidatableDebt": 0,
+      "deposits": 260055.68681808564,
+      "debt": 37500
+    },
+    {
+      "marketIndex": 4,
+      "user": "0x009d13E9bEC94Bf16791098CE4E5C168D27A9f07",
+      "liquidatableDebt": 0,
+      "deposits": 15919.428733339368,
+      "debt": 3303.943772331009
+    },
+    {
+      "marketIndex": 4,
+      "user": "0xF9A2Fa22CB7Df26E3a10622C696f37fC345c6239",
+      "liquidatableDebt": 0,
+      "deposits": 5119900.227265204,
+      "debt": 1031746.3245391846
+    },
+    {
+      "marketIndex": 4,
+      "user": "0xC4Dd018f8c281BD4A7DF9777546d1c0fdE3826F9",
+      "liquidatableDebt": 0,
+      "deposits": 564.0558953016972,
+      "debt": 0
+    },
+    {
+      "marketIndex": 4,
+      "user": "0x9c0D1F4a029c46265831D120DeE9CDc72F0aB3C3",
+      "liquidatableDebt": 0,
+      "deposits": 20348.049040582737,
+      "debt": 3287.7554512023926
+    },
+    {
+      "marketIndex": 4,
+      "user": "0xe81b85CD6903dECCFeA9c4d3Fa87D29BF02e5Cc0",
+      "liquidatableDebt": 0,
+      "deposits": 750000,
+      "debt": 147969.2907333374
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x34A7a276eD77c6FE866c75Bbc8d79127c4E14a09",
+      "liquidatableDebt": 0,
+      "deposits": 970.811367424251,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x0447d8B00a82e973149c8414d1830e272b2C782f",
+      "liquidatableDebt": 0,
+      "deposits": 1317.1876026299246,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x7B2FFb7Db6f82eA5527f4B6E22EBF39B4Abc4f36",
+      "liquidatableDebt": 0,
+      "deposits": 476.55799915223383,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xfe70E4fdD19489d1384e50CC2DbfE993f7b94589",
+      "liquidatableDebt": 0,
+      "deposits": 390.9906300904491,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xBB20d477d4F22d7169ad4c5Bd67984362BE8bad0",
+      "liquidatableDebt": 0,
+      "deposits": 165.75718529444364,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xE58ED128325A33afD08e90187dB0640619819413",
+      "liquidatableDebt": 0,
+      "deposits": 1693.7917753619984,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x16EC2AeA80863C1FB4e13440778D0c9967fC51cb",
+      "liquidatableDebt": 0,
+      "deposits": 24433.765947011205,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xF65E2Da40e92EBaBD78535611859cfFE2Aa0F877",
+      "liquidatableDebt": 0,
+      "deposits": 35.3111193927388,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xe7CBBaf24796B78E82DFBb30C2FDA09e4B9e6DFf",
+      "liquidatableDebt": 0,
+      "deposits": 78.94975142276309,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xCD00E6Bf1e723ff1F15d2793422e657C9488F69e",
+      "liquidatableDebt": 0,
+      "deposits": 18.765689983006155,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xaC22183e4985d249248D95EDA50E189037327957",
+      "liquidatableDebt": 0,
+      "deposits": 423.19016891976406,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x0B5C33102aF77B557F37eFc7BfcFa56eE075AAfA",
+      "liquidatableDebt": 0,
+      "deposits": 148.90711504174067,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xBd8b192d2081b77e148095c08dCc719e61C2D826",
+      "liquidatableDebt": 0,
+      "deposits": 964.1150496982516,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x46B14628fFBC01a87AB2d66e95600b8dC4A49Ce2",
+      "liquidatableDebt": 0,
+      "deposits": 60.83335533283511,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x23B43ce86e9Cd75A362E24E3daf788C5A72E900f",
+      "liquidatableDebt": 0,
+      "deposits": 2027.7712010214555,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x4666e94300429C6d3340449bC828E4218F360672",
+      "liquidatableDebt": 0,
+      "deposits": 493.1106740912749,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xfD16B0f85124D711937b35eC608a1b47Bd093D9a",
+      "liquidatableDebt": 0,
+      "deposits": 386.23576326114045,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xAAc0aa431c237C2C0B5f041c8e59B3f1a43aC78F",
+      "liquidatableDebt": 0,
+      "deposits": 3011.310578007872,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x1B0F7cE7240a42015c7D79DDce28531d41bDBf8D",
+      "liquidatableDebt": 0,
+      "deposits": 1009.9356900480099,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x79CD458DA3F350b81A641d5Eb210725189c7Fb11",
+      "liquidatableDebt": 0,
+      "deposits": 230.73838395380022,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x71F9CCd68bf1f5F9b571f509E0765A04ca4fFad2",
+      "liquidatableDebt": 0,
+      "deposits": 509.0435821259738,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x724F321C4efeD5e3C7CcA40168610c258c82d02F",
+      "liquidatableDebt": 0,
+      "deposits": 557.1119771007933,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x03E2f0a5c348e86262F4A7a78BFAaDFe7DfbbD96",
+      "liquidatableDebt": 0,
+      "deposits": 1244.7559948748446,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x4323A79bA3375d15951481882A51fb56c09C4d87",
+      "liquidatableDebt": 0,
+      "deposits": 234.3640187679219,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x2723723FDd3Db8ba2D6f0e1B333e90A7E60A0411",
+      "liquidatableDebt": 0,
+      "deposits": 163.25049617953172,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x9b422e571eb2cb9837efDc4F9087194d65Fb070A",
+      "liquidatableDebt": 0,
+      "deposits": 3108.8352170369953,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x018E608cbEecB4D5D129EbB9a2b9775a9D386B7e",
+      "liquidatableDebt": 0,
+      "deposits": 4.3845404348218375,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xb23AAa1c2941AF70572d99CAA05Cf8b35ce4441B",
+      "liquidatableDebt": 0,
+      "deposits": 71.21365218746557,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xe5DBf334D03a8474b4617eed1D2518c5C776B225",
+      "liquidatableDebt": 0,
+      "deposits": 152.3984980811377,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xb957DccaA1CCFB1eB78B495B499801D591d8a403",
+      "liquidatableDebt": 0,
+      "deposits": 9.837396666592245,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xe5fA8566c904e6C410515710D2Bb88fBbb45c49A",
+      "liquidatableDebt": 0,
+      "deposits": 85.89925515201487,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x45dCe12f486aEc17eB67E61e8701317e75590eDE",
+      "liquidatableDebt": 0,
+      "deposits": 54.938893231736586,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xaf24C4003a5299698EeA49A6ac2a98c0cf2903ce",
+      "liquidatableDebt": 0,
+      "deposits": 125.34243712776583,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x9129467274790D1Edc42Ece76453e37f138A5339",
+      "liquidatableDebt": 0,
+      "deposits": 123.4367830323445,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xE5f5CC12d477ebB1eA779b211355aa88b7E21D2c",
+      "liquidatableDebt": 0,
+      "deposits": 256.9516003925322,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xb86a3750521cDb1F33571F1428075b317A567C69",
+      "liquidatableDebt": 0,
+      "deposits": 52.3037244277924,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x689DA26Ef580E16fE65E997105ae2e9DB5308e43",
+      "liquidatableDebt": 0,
+      "deposits": 4379.842976823442,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x759a159D78342340EbACffB027c05910c093f430",
+      "liquidatableDebt": 0,
+      "deposits": 10277.119445266,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x606DF30F04Bd0F8Fdb27fB87C6a2B1a5788EE58a",
+      "liquidatableDebt": 0,
+      "deposits": 353.39309382924824,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x446087A1439a10889ebC124aBD2E2761370BC848",
+      "liquidatableDebt": 0,
+      "deposits": 111.67977263406848,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x5e27A2447b4f19064f0014D3De3bB0777f7b84c9",
+      "liquidatableDebt": 0,
+      "deposits": 52.06034269834118,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xfFf09736ca0CdB61869424981130540b2D9AFFf9",
+      "liquidatableDebt": 0,
+      "deposits": 6.683743135314616,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xC673aCABAD759eBc58bdB518b7572a001B0F3186",
+      "liquidatableDebt": 0,
+      "deposits": 63.784736847149645,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x61e0822B7077A55148952F2ec43F0effBB623a3E",
+      "liquidatableDebt": 0,
+      "deposits": 166.1057657750818,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xB23bF2b33eB8036EE3c507dB5ef2F744b09eA76c",
+      "liquidatableDebt": 0,
+      "deposits": 439.9138229921063,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x43e24bd6E48a9A7a8d3c12844bBa2AcF255f6951",
+      "liquidatableDebt": 0,
+      "deposits": 91.50230817356244,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xa08Feba6a5a8b039F33Ce9094C65b2DA107d842E",
+      "liquidatableDebt": 0,
+      "deposits": 22.899798647516974,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x9Ad6d46b64b7466a8Bf765dEae3937B58288317D",
+      "liquidatableDebt": 0,
+      "deposits": 357.42312276118804,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xD5Dad5Db8C8839B15DB820c870222e698B91DAb5",
+      "liquidatableDebt": 0,
+      "deposits": 202.43544393991823,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x1037B55Bb5A74dEb96a18542c0bb8Dcf7AF3Ff96",
+      "liquidatableDebt": 0,
+      "deposits": 21.25515706040991,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x0e0F6CC63CCE00563a85435d17Bb0bB048ddC215",
+      "liquidatableDebt": 0,
+      "deposits": 153.89654057990538,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xe30248D88d5231d607C90900529C8B2c9755dAED",
+      "liquidatableDebt": 0,
+      "deposits": 1.5922596277126928,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xc9CF2Afd5D29aeDBa89A4fe7310e8Ba7c49637E4",
+      "liquidatableDebt": 0,
+      "deposits": 42.231253801168144,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x82d731cDCAA84bE84Cd2c626bA18A37B04f452a6",
+      "liquidatableDebt": 0,
+      "deposits": 38.929235621949324,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x195a612402710115143062d451F94B1B84BC04e8",
+      "liquidatableDebt": 0,
+      "deposits": 239.45511441472487,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x29A62d30A0814F28c8665977d51DFF95181085B6",
+      "liquidatableDebt": 0,
+      "deposits": 75.4290024912909,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x2CBAE16f9237757BC18C89F04E80ba9ba36d2dfD",
+      "liquidatableDebt": 0,
+      "deposits": 7677.665903278005,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x49b198AF8825bED9c1496A56B8bCf0E5343da1e8",
+      "liquidatableDebt": 0,
+      "deposits": 20.701448688110755,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x10eE4A1aFD15073A97975236dCEd5D95E68477EA",
+      "liquidatableDebt": 0,
+      "deposits": 458.0343800852241,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xD0B5dB886F446aFF638b4FaAFA9b95704c561ea8",
+      "liquidatableDebt": 0,
+      "deposits": 63.06167493986167,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x21CfbdE20d0108DE06cEB60fAE1cD9658Fa9312A",
+      "liquidatableDebt": 0,
+      "deposits": 669.1333593547797,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x193641EA463C3B9244cF9F00b77EE5220d4154e9",
+      "liquidatableDebt": 0,
+      "deposits": 50.25994536841135,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xa123dD17F9FEe5a2d6FaF09f8C02bBe999e824d4",
+      "liquidatableDebt": 0,
+      "deposits": 868.4623784846747,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x0B3427E890d456bfd618172d8ECa2eA3F3376BC1",
+      "liquidatableDebt": 0,
+      "deposits": 108.6812140883251,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xD57497aed2324517f801b5cF8269edf996907A82",
+      "liquidatableDebt": 0,
+      "deposits": 6.408674616697869,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xFDa9365E2CDf21d72cb0dc4F5FF46F29e4aC59CE",
+      "liquidatableDebt": 0,
+      "deposits": 138.48574976355874,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x69258d1ed30A0e5971992921cb5787b9c7a2909D",
+      "liquidatableDebt": 0,
+      "deposits": 4972.3408690752185,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x10890742A1a20A936132072C20Ae77b081486190",
+      "liquidatableDebt": 0,
+      "deposits": 4107.551899560869,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x66d692bBeCAcAe3026834750e603291Fe4384161",
+      "liquidatableDebt": 0,
+      "deposits": 7.9243017055365765,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x9932de31591196f0Df1e77f2c951839A381b29ca",
+      "liquidatableDebt": 0,
+      "deposits": 63.59099401238014,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xA83F6BEC55a100CA3402245fC1d46127889354EC",
+      "liquidatableDebt": 0,
+      "deposits": 499.6912741104698,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x0d6E94D085A597f316bE1833649e05a45103e873",
+      "liquidatableDebt": 0,
+      "deposits": 64.79962863064753,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xf56036f6a5D9b9991c209DcbC9C40b2C1cD46540",
+      "liquidatableDebt": 0,
+      "deposits": 69.26486287860736,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xa800Fe5E671E26EA3bf7651529CA195FF3Eb45B1",
+      "liquidatableDebt": 0,
+      "deposits": 88.10124061411787,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x80FA06c0E3619D0558d4E23f77237B8BBCd68465",
+      "liquidatableDebt": 0,
+      "deposits": 104.00718474359923,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x86486EdcB3eBC8f79DB2D799B47Cb833662740e8",
+      "liquidatableDebt": 0,
+      "deposits": 824.9576030723833,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x65E279cA55a79531C0bf43ca17397997D45da28B",
+      "liquidatableDebt": 0,
+      "deposits": 502.96660346253105,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x05e11bA33a353B0AB6e1Ecf5e8b3510c1D083638",
+      "liquidatableDebt": 0,
+      "deposits": 20.24801439345457,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xF56170Cf9b6C70d27eecC188DA025c00a684a6Df",
+      "liquidatableDebt": 0,
+      "deposits": 11.427713964877102,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x0Cf776d57e0223f47eD3A101927BB78D41Ad8A13",
+      "liquidatableDebt": 0,
+      "deposits": 32.15740947617988,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x6D6D698eeFf46d3C7E1fa13997D229a4967786b1",
+      "liquidatableDebt": 0,
+      "deposits": 127.81489060790716,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xf2EfC7b78168abC6A5be99e5624c64f2499d91fC",
+      "liquidatableDebt": 0,
+      "deposits": 20.728401517843043,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xF78bb94f8E88229F3494A8Ab38F68F535357127c",
+      "liquidatableDebt": 0,
+      "deposits": 5.167772727622053,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x4470e767CA1fDD1469A8E1e5d7592C4097065402",
+      "liquidatableDebt": 0,
+      "deposits": 68.52585506385185,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x405aaE8D87a1F307a7b626B6e8ff7060AD202F71",
+      "liquidatableDebt": 0,
+      "deposits": 62.40461899868914,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xE1BCAAe68AfC90D99BD28ed03F05810bC27D6323",
+      "liquidatableDebt": 0,
+      "deposits": 446.90906611037855,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x1883952756815C18b6677979Fc467662fab413fe",
+      "liquidatableDebt": 0,
+      "deposits": 35.9410461760221,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x4cc47062a8c94550489FEdEbD7229a59A1B92Ae0",
+      "liquidatableDebt": 0,
+      "deposits": 46.86288017947425,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x4b3278F510E680CDD74CC875e436aCd63fc96681",
+      "liquidatableDebt": 0,
+      "deposits": 13.218592696449454,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xB5d967e17C21D9b3bD995F261e6c9998B6A2212D",
+      "liquidatableDebt": 0,
+      "deposits": 50.88590170224895,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x5B191F5A2b4A867c4eD71858dacCc51FC59c69c0",
+      "liquidatableDebt": 0,
+      "deposits": 236.03154343944692,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x5618f949C12C2275873b41a95804bf02E49Ca34A",
+      "liquidatableDebt": 0,
+      "deposits": 47.752627470078764,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x676177f1a9cF6c051eF152D12ABeEF1F8A18473e",
+      "liquidatableDebt": 0,
+      "deposits": 213.40420929253733,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x009d13E9bEC94Bf16791098CE4E5C168D27A9f07",
+      "liquidatableDebt": 0,
+      "deposits": 99.11822630144897,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x2b3CE0006E3d8F7aBadF8b0c3f68aB9cC3BfA49E",
+      "liquidatableDebt": 0,
+      "deposits": 16.825933855203754,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x1e69D921C75019BCb34B39977bA52FaC2addD958",
+      "liquidatableDebt": 0,
+      "deposits": 218.15825965439257,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xf5e133F3465C477eD3A3d8d25dB3A709C1Cbbfc2",
+      "liquidatableDebt": 0,
+      "deposits": 56.179032760835675,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x7682c1b64aFe01A6E6cE2e2d40c9aA2D95ADA12e",
+      "liquidatableDebt": 0,
+      "deposits": 19.407777429621547,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x9Fc7E8e796c1C94231505c6Cb5A9f50b2Eb545E3",
+      "liquidatableDebt": 0,
+      "deposits": 27.37762340620241,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x9697ae3E466D7a9bF8CDC65Aad1D189dEB60F5dB",
+      "liquidatableDebt": 0,
+      "deposits": 186.78434492312843,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x23D768466FD25E2E10226241Ca51b0c21C7381a6",
+      "liquidatableDebt": 0,
+      "deposits": 30.936843815050334,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x7760848E31e1C8610bF55Fcd9345fEe8e10884b6",
+      "liquidatableDebt": 0,
+      "deposits": 316.00546549209486,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x705427e35A212c9f1C230Ad5c3598e0e972bB42C",
+      "liquidatableDebt": 0,
+      "deposits": 13.880361733320598,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x3653aE33897e53aC3522C3D35315c5Ca0356879E",
+      "liquidatableDebt": 0,
+      "deposits": 50.798312078644585,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xB5b22bB1db6803103FB9617aC9cf3ea4B6E39438",
+      "liquidatableDebt": 0,
+      "deposits": 149.62349342097764,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xF3D9281fa183B74F32B96E1c5244596045f4edE8",
+      "liquidatableDebt": 0,
+      "deposits": 29.19988045606002,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x5feAf84dca91666f812B8405F4B275Eec4fe7AA2",
+      "liquidatableDebt": 0,
+      "deposits": 689.758493124764,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x3F7C10cBbb1EA1046a80B738b9Eaf3217410c7F6",
+      "liquidatableDebt": 0,
+      "deposits": 132.22003235564125,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x200Daf201cdB7d56DcAC7cD49506b6046F6131E5",
+      "liquidatableDebt": 0,
+      "deposits": 4.1796279406377,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xF6F58aB516bac998AC7194A658E64e136c895F51",
+      "liquidatableDebt": 0,
+      "deposits": 51.3987958202528,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x6eEf911fEd0E849FE7327A0Bf53bd6F3E34110F8",
+      "liquidatableDebt": 0,
+      "deposits": 2.1671685601498254,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x035E08e192e6d59a45552e7ABD44B13F0fc4C365",
+      "liquidatableDebt": 0,
+      "deposits": 256.1621621534956,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xB3C3e749A84e1C58C9Ca8dF56cF6620F91143A37",
+      "liquidatableDebt": 0,
+      "deposits": 8.657980876334458,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xD3EDc724C064d2C350FF6Ff5BaF74Ca2Ce7B6821",
+      "liquidatableDebt": 0,
+      "deposits": 233.245002516805,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xcB6E1613029d790C00f89296808f278d6dc25B2f",
+      "liquidatableDebt": 0,
+      "deposits": 110.27629045212116,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x585973E15344b421C8F1a7615371Ad73A09e102D",
+      "liquidatableDebt": 0,
+      "deposits": 139.91023705541517,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x2b3182da8b7A1A8E5F728450B85EB063d0609C44",
+      "liquidatableDebt": 0,
+      "deposits": 130.7065420866233,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x89D022F95dC5073B7479699044fDf6E3Bc74D3b3",
+      "liquidatableDebt": 0,
+      "deposits": 35.44619276224621,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x3c5Aac016EF2F178e8699D6208796A2D67557fe2",
+      "liquidatableDebt": 0,
+      "deposits": 50.552949106234465,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xE016B7eedfBDfC2E45972236Cac7F5230F959677",
+      "liquidatableDebt": 0,
+      "deposits": 883.1748894696067,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x48589bC798c7177E820Dd63Aa0f796E9bab12faa",
+      "liquidatableDebt": 0,
+      "deposits": 22.256450725437183,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0x3B4c2Cc2005de66BAB938115e67156f4a2f87dBC",
+      "liquidatableDebt": 0,
+      "deposits": 28.303572682831177,
+      "debt": 0
+    },
+    {
+      "marketIndex": 5,
+      "user": "0xFe202706E36F31aFBaf4b4543C2A8bBa4ddB2deE",
+      "liquidatableDebt": 0,
+      "deposits": 266.36423302254667,
+      "debt": 0
+    }
+  ]
+}},

@@ -1,0 +1,117 @@
+{
+  "/dbr/policy": {
+    "func": "dbr_policy",
+    "url": "https://www.inverse.finance/api/transparency/dbr-emissions",
+    "alias": "clean.dbr.dbr_policy"
+  },
+  "/dbr/price": {
+    "func": "dbr_price",
+    "url": "https://www.inverse.finance/api/dbr",
+    "alias": "clean.dbr.dbr_price"
+  },
+  "/tvl": {
+    "func": "tvl",
+    "url": "https://www.inverse.finance/api/f2/tvl",
+    "alias": "clean.pce.tvl"
+  },
+  "/firm": {
+    "func": "firm",
+    "url": "https://www.inverse.finance/api/f2/fixed-markets",
+    "alias": "clean.pce.firm"
+  },
+  "/positions": {
+    "func": "positions",
+    "url": "https://www.inverse.finance/api/f2/firm-positions",
+    "alias": "clean.positions.positions"
+  },
+  "/firm/debt": {
+    "func": "debt",
+    "url": null,
+    "alias": "build.debt.debt"
+  },
+  "/firm/tvl": {
+    "func": "tvl_firm",
+    "url": null,
+    "alias": "build.tvl_firm.tvl_firm"
+  },
+  "/dbr/issue": {
+    "func": "dbr_issue",
+    "url": null,
+    "alias": "build.dbr_issue.dbr_issue"
+  },
+  "/inv/stake": {
+    "func": "inv_stake",
+    "url": null,
+    "alias": "build.inv_stake.inv_stake"
+  },
+  "/inv/dbr": {
+    "func": "dbr_per_inv",
+    "url": null,
+    "alias": "build.dbr_inv.dbr_per_inv"
+  },
+  "/inv/fx": {
+    "func": "inv_fx",
+    "url": null,
+    "alias": "build.inv_fx.inv_fx"
+  },
+  "/inv/mult": {
+    "func": "inv_mult",
+    "url": null,
+    "alias": "build.inv_fx.inv_mult"
+  },
+  "/dbr/claim": {
+    "func": "dbr_emissions",
+    "url": null,
+    "alias": "clean.dbr.dbr_emissions"
+  },
+  "/dbr/net": {
+    "func": "dbr_net",
+    "url": null,
+    "alias": "build.dbr_issue.dbr_net"
+  },
+  "/inv/dbr_dola": {
+    "func": "dbr_dola",
+    "url": null,
+    "alias": "build.dbr_dola.dbr_dola"
+  },
+  "/firm/debt/history": {
+    "func": "debt_histo",
+    "url": "https://www.inverse.finance/api/f2/debt-histo",
+    "alias": "clean.debt_hist.debt_histo"
+  },
+  "/dbr/burnt": {
+    "func": "debt_time",
+    "url": null,
+    "alias": "build.debt_time.debt_time"
+  },
+  "/dbr/policy/history": {
+    "func": "emissions_hist",
+    "url": null,
+    "alias": "clean.dbr.emissions_hist"
+  },
+  "/dbr/rewarded": {
+    "func": "dbr_avail",
+    "url": null,
+    "alias": "build.dbr_issue.dbr_avail"
+  },
+  "/dbr/claimable": {
+    "func": "dbr_accrued",
+    "url": null,
+    "alias": "build.dbr_issue.dbr_accrued"
+  },
+  "/inv/dbr/claimable": {
+    "func": "filter_stakers",
+    "url": null,
+    "alias": "build.dbr_float.filter_stakers"
+  },
+  "/stake_debt": {
+    "func": "stake_debt",
+    "url": null,
+    "alias": "build.stake_debt.stake_debt"
+  },
+  "/loans": {
+    "func": "loans",
+    "url": "https://www.inverse.finance/api/f2/dbr-deficits",
+    "alias": "build.loans.loans"
+  }
+}
