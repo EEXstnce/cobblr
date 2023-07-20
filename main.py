@@ -1,79 +1,25 @@
-import functools
-import os
-import time
-import pickle
-import json
-import importlib
-
 from flask import Flask, request, render_template, jsonify, make_response
 from werkzeug.exceptions import HTTPException
 from flask_cors import CORS
-from flask_caching import Cache
-from apscheduler.schedulers.background import BackgroundScheduler
+import functools
+import os
+import warnings
 
+warnings.filterwarnings("ignore", category=UserWarning, module='tzlocal')
+
+from script import cache_utils
+from script import api_functions
 from util import printToJson
-
-os.environ['TZ'] = 'UTC'
-time.tzset()
+from script.authorization import check_authorization
 
 app = Flask(__name__)
 CORS(app)
-cache = Cache(
-  app,
-  config={
-    'CACHE_TYPE': 'filesystem',
-    'CACHE_DIR': 'data/cache',
-    'CACHE_DEFAULT_TIMEOUT': 2221600,  # Cache data for a month
-    'CACHE_THRESHOLD': 100000  # Cache up to 100k items
-  })
+
+cache_functions = cache_utils.configure_caching(app)
+api_functions, cache = cache_utils.configure_caching(app)
+
 hits = 0
 errors = 0
-
-# Load API function and configuration from JSON file
-with open("api_func_config.json", "r") as config_file:
-  config_data = json.load(config_file)
-
-# Retrieve functions configuration from the loaded data
-functions_config = {
-  route: {
-    "func": config_data[route]["func"],
-    "url": config_data[route]["url"],
-    "alias": config_data[route]["alias"]
-  }
-  for route in config_data
-}
-
-api_functions = {}
-
-# Dynamically import functions based on configuration
-for route, config in functions_config.items():
-  module_name, function_name = config["alias"].rsplit(".", 1)
-  module = importlib.import_module(module_name)
-  func = getattr(module, function_name)
-  api_functions[route] = (func, config["url"], config["alias"])
-
-
-def update_cache():
-  for name, (func, url, alias) in api_functions.items():
-    try:
-      # Get current data
-      current_data = cache.get(name)
-
-      # Get new data
-      new_data = func()
-
-      # If new data is different from current data, update the cache
-      if new_data != current_data:
-        cache.set(name, new_data)
-
-    except Exception as e:
-      print(f"Error updating cache for {name}: {e}")
-
-
-# Schedule the update_cache function to run every minute instead of every 2 minutes
-scheduler = BackgroundScheduler()
-scheduler.add_job(update_cache, 'interval', minutes=1)
-scheduler.start()
 
 
 @app.route('/', defaults={'path': ''}, methods=['OPTIONS'])
@@ -122,14 +68,8 @@ def api():
 
   data = request.args.get("data")
   token = request.args.get("token")
-  with open("tokens.pkl", "rb") as t:
-    if token is not None:
-      if token in pickle.loads(t.read()):
-        auth = True
-      else:
-        auth = True
-    else:
-      auth = True
+
+  auth = check_authorization(token)
 
   if data is None:
     print("No data requested")
@@ -151,7 +91,7 @@ def api():
     })
 
 
-def endpoint(func, name):
+def endpoint(func, name, cache):
   cache_key = name.replace("/", "_")  # replace slashes with underscores
   cached_data = cache.get(cache_key)
   if cached_data is not None:
@@ -183,9 +123,10 @@ def endpoint(func, name):
 
 
 for route, (func, url, alias) in api_functions.items():
-  route_func = functools.partial(endpoint, func, route)
+  route_func = functools.partial(endpoint, func, route, cache)
   route_func.__name__ = f"{func.__name__}_endpoint"  # Flask uses the function name as an endpoint
   app.route(route, methods=["GET"])(route_func)
 
 if __name__ == "__main__":
+  os.environ['TZ'] = 'UTC'  # Set the timezone to UTC
   app.run(host="0.0.0.0", port=8000, debug=False)

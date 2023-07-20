@@ -535,6 +535,14 @@ testing = ["pytest-benchmark", "pytest"]
 dev = ["tox", "pre-commit"]
 
 [[package]]
+name = "plup-hello"
+version = "0.4.2"
+description = "StartinBlox test package"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "protobuf"
 version = "4.21.12"
 description = ""
@@ -867,7 +875,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "f53c640cb5a409d1bdf8bdf2a60b46d6c33e035da3cc8da9d8d7ae549e5d12e8"
+content-hash = "aaddd0f214729ab4b3ba7f13c3a903878a30687f19e534194a1b0c97debbb4e3"
 
 [metadata.files]
 aiohttp = []
@@ -911,6 +919,7 @@ passlib = []
 pillow = []
 platformdirs = []
 pluggy = []
+plup-hello = []
 protobuf = []
 pycparser = []
 pycryptodomex = []

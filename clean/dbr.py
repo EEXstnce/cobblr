@@ -34,3 +34,11 @@ def emissions_hist():
   rates = data["rewardRatesHistory"]["rates"]
 
   return rates
+
+
+def dbr_claim():
+  url = "https://www.inverse.finance/api/transparency/dbr-emissions"
+  data = getData(url)
+  claimed = data["totalEmissions"]
+
+  return claimed

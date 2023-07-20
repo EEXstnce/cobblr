@@ -17,6 +17,7 @@ APScheduler = "^3.10.1"
 pandas = "^2.0.2"
 seaborn = "^0.12.2"
 matplotlib = "^3.7.1"
+plup-hello = "^0.4.2"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
