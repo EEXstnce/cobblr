@@ -1,0 +1,13 @@
+ /firm/tvl 
+ /inv/mult 
+ /inv/fx 
+ /firm/debt 
+ /loans 
+ /inv/dbr 
+ /inv/dbr/claimable 
+ /inv/dbr_dola 
+ /dbr/net 
+ /dbr/net 
+ /inv/mult 
+
+ Expecting value: line 1 column 1 (char 0)

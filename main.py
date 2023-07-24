@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, jsonify, make_response
 from werkzeug.exceptions import HTTPException
 from flask_cors import CORS
+from datetime import timedelta
 import functools
 import os
 import warnings
@@ -94,32 +95,30 @@ def api():
 def endpoint(func, name, cache):
   cache_key = name.replace("/", "_")  # replace slashes with underscores
   cached_data = cache.get(cache_key)
-  if cached_data is not None:
-    return cached_data
-  else:
-    global hits, errors
-    hits += 1
-    try:
-      # Attempt to get data and save to cache
-      data = func()
-      printToJson(data, cache_key)  # use modified key here
-      cache.set(cache_key, data)  # Cache data for a month
-      return make_response(jsonify(data), 200)
-    except Exception as e:
-      # If error, increase error count and try to return cached data
-      errors += 1
-      print(f"Error fetching {name} data: {e}")
-      cached_data = cache.get(cache_key)  # Get cached data if it exists
-      if cached_data is not None:
-        return make_response(jsonify(cached_data), 200)
-      else:
-        return make_response(
-          jsonify({
-            "success":
-            False,
-            "message":
-            f"Error fetching {name} data and no cache is available."
-          }), 500)
+
+  try:
+    # Attempt to get data and save to cache
+    data = func()
+    printToJson(data, cache_key)  # use modified key here
+    cache_timeout = int(
+      timedelta(days=30).total_seconds())  # Cache data for a month
+    cache.set(cache_key, data, timeout=cache_timeout)
+    return make_response(jsonify(data), 200)
+  except Exception as e:
+    # If error, increase error count and try to return cached data
+    global errors
+    errors += 1
+    print(f"Error fetching {name} data: {e}")
+    if cached_data is not None:
+      return make_response(jsonify(cached_data), 200)
+    else:
+      return make_response(
+        jsonify({
+          "success":
+          False,
+          "message":
+          f"Error fetching {name} data and no cache is available."
+        }), 500)
 
 
 for route, (func, url, alias) in api_functions.items():
