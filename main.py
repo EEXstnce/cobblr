@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module='tzlocal')
 
 from script import cache_utils
 from script import api_functions
-from util import printToJson
+from script.util import printToJson
 from script.authorization import check_authorization
 
 app = Flask(__name__)
@@ -98,7 +98,7 @@ def endpoint(func, name, cache):
 
   try:
     # Attempt to get data and save to cache
-    data = func()
+    data = func(url)
     printToJson(data, cache_key)  # use modified key here
     cache_timeout = int(
       timedelta(days=30).total_seconds())  # Cache data for a month
