@@ -12,6 +12,7 @@ from script import cache_utils
 from script import api_functions
 from script.util import printToJson
 from script.authorization import check_authorization
+import script.shared_utils as shared_utils
 
 app = Flask(__name__)
 CORS(app)
@@ -92,13 +93,13 @@ def api():
     })
 
 
-def endpoint(func, name, cache):
+def endpoint(func, name, cache, keys):
   cache_key = name.replace("/", "_")  # replace slashes with underscores
   cached_data = cache.get(cache_key)
 
   try:
     # Attempt to get data and save to cache
-    data = func(url)
+    data = func(url, keys)
     printToJson(data, cache_key)  # use modified key here
     cache_timeout = int(
       timedelta(days=30).total_seconds())  # Cache data for a month
@@ -121,8 +122,8 @@ def endpoint(func, name, cache):
         }), 500)
 
 
-for route, (func, url, alias) in api_functions.items():
-  route_func = functools.partial(endpoint, func, route, cache)
+for route, (func, url, alias, keys) in api_functions.items():
+  route_func = functools.partial(endpoint, func, route, cache, keys)
   route_func.__name__ = f"{func.__name__}_endpoint"  # Flask uses the function name as an endpoint
   app.route(route, methods=["GET"])(route_func)
 

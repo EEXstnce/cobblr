@@ -1,8 +1,8 @@
 {
   "/chainlink": {
     "func": "raw",
-    "url": "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=LUSD&tsyms=USD",
+    "url": "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={0}&tsyms={1}",
     "alias": "source.chainlink",
-    "keys": ["LASTUPDATE"]
+    "keys": ["USDP","USD"]
   }
 }
