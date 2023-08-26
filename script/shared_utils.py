@@ -22,7 +22,8 @@ def load_functions_from_config(config_file):
                                  config_data[route]["keys"]),
             "alias": config_data[route]["alias"] + "." +
             config_data[route]["func"],
-            "keys": config_data[route]["keys"]
+            "keys": config_data[route]["keys"],
+            "config": config_data[route]["config"]
         }
         for route in config_data
     }
@@ -35,6 +36,6 @@ def load_functions_from_config(config_file):
         module = importlib.import_module(module_name)
         func = getattr(module, function_name)
         api_functions[route] = (func, config["url"], config["alias"],
-                                config["keys"])
+                                config["keys"], config["config"])
 
     return api_functions

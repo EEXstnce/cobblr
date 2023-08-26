@@ -3,6 +3,7 @@
     "func": "raw",
     "url": "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={0}&tsyms={1}",
     "alias": "source.chainlink",
-    "keys": ["USDP","USD"]
+    "keys": ["USDP","USD"],
+    "config": ["LASTUPDATE","PRICE","VOLUME24HOUR","HIGHDAY", "LOWDAY"]
   }
 }

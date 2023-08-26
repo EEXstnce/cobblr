@@ -1,9 +1,7 @@
 from script.util import getData
 
-last, price, vol, high, low = "LASTUPDATE", "PRICE", "VOLUME24HOUR", "HIGHDAY", "LOWDAY"
 
-
-def raw(url, keys):
+def raw(url, keys, config):
   # uses cryptocompare api
   u = url
   data = getData(u)
@@ -11,13 +9,9 @@ def raw(url, keys):
   lusd = raw[keys[0]]
   usd = lusd[keys[1]]
   return {
-    "last": usd[last],
-    "price": usd[price],
-    "vol": usd[vol],
-    "high": usd[high],
-    "low": usd[low]
+    "last": usd[config[0]],
+    "price": usd[config[1]],
+    "vol": usd[config[2]],
+    "high": usd[config[3]],
+    "low": usd[config[4]]
   }
-
-
-def stables():
-  pass
