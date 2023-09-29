@@ -4,6 +4,21 @@
     "url": "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={0}&tsyms={1}",
     "alias": "source.chainlink",
     "keys": ["USDP","USD"],
-    "config": ["LASTUPDATE","PRICE","VOLUME24HOUR","HIGHDAY", "LOWDAY"]
+    "config": ["RAW","LASTUPDATE","PRICE","VOLUME24HOUR","HIGHDAY", "LOWDAY"]
+  },
+  "/etherscan/address/txs": {
+    "func": "scan",
+    "url": "https://api.etherscan.io/api?module=account&action=txlist&address={0}&startblock={2}&endblock={3}&page={4}&offset={5}&sort={6}&apikey={1}",
+    "alias": "source.etherscan",
+    "keys": ["0xC555347d2b369B074be94fE6F7Ae9Ab43966B884","3ZPZ7M8X6D132TYZ84MD4KTIC621AG1XAY", "0","99999999","1","100","desc"],
+    "config": ["result"]
+  },
+  "/swap/GUSD": {
+    "func": "scan2",
+    "url": "https://api.etherscan.io/api?module=account&action=tokentx&contractaddress={0}&address={2}&startblock={3}&endblock={4}&page={5}&offset={6}&sort={7}&apikey={1}",
+    "alias": "source.etherscan",
+    "keys": ["0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd","3ZPZ7M8X6D132TYZ84MD4KTIC621AG1XAY","0x5aA1356999821b533EC5d9f79c23B8cB7c295C61","0","99999999","1","100","desc"],
+    "config": ["result"]
   }
 }
+

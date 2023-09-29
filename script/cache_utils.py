@@ -18,10 +18,10 @@ executor = ThreadPoolExecutor(max_workers=5)
 
 
 def update_cache(api_functions, cache):
-  for name, (func, url, alias, keys) in api_functions.items():
+  for name, (func, url, alias, keys, config) in api_functions.items():
     try:
       # Get new data asynchronously
-      future = executor.submit(func)
+      future = executor.submit(func, url, keys, config)
 
       # If new data is different from current data, update the cache
       if future.result() != cache.get(name):
