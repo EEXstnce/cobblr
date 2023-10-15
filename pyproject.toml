@@ -19,6 +19,8 @@ seaborn = "^0.12.2"
 matplotlib = "^3.7.1"
 plup-hello = "^0.4.2"
 scripts = "^2.0"
+tools = {version = "^0.1.9", python = ">=3.10,<3.11"}
+
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
